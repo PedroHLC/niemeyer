@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+[ `tty` = '/dev/tty1'] && startchaotic
