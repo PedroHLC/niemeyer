@@ -12,17 +12,11 @@ import QtQuick.Controls.Material 2.12
 
 Rectangle {
     id: container
-    width: 640
-    height: 480
+    width: 800
+    height: 600
 
     LayoutMirroring.enabled: Qt.locale().textDirection == Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
-
-    Material.theme: Material.Dark
-    Material.accent: Material.Indigo
-
-    Connections {
-    }
 
     Image {
         anchors.fill: parent
@@ -33,15 +27,21 @@ Rectangle {
         smooth: true
     }
 
-    Column {
-        id: content
+    Rectangle {
+        width: 640
+        height: 480
         anchors.centerIn: parent
+        color: Material.background
         
-        Button {
-            text: qsTr(lang.mainCancel)
-            highlighted: true
-            Material.accent: Material.Orange
+        Material.theme: Material.Light
+        Material.accent: Material.Indigo
+
+        StackView {
+            id: contentStack
+            anchors.fill: parent
+            initialItem: languagePicker
         }
     }
 
+    LanguagePicker { id: languagePicker }
 }

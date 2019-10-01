@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("assetsPath", appPath.resolved(QStringLiteral(ASSETS_PATH)));
     
     // Show view
-    view.setSource(appPath.resolved(QStringLiteral(QML_PATH "Welcome.qml")));
+    view.setSource(appPath.resolved(QStringLiteral(QML_PATH "MainContainer.qml")));
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.show();
 
