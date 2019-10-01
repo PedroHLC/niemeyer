@@ -54,3 +54,7 @@ export QT_QPA_EGLFS_NO_LIBINPUT=1
 ```
 
 There is also a `launcher/startchaotic` script that will be used in generated ISO.
+
+# What it looks like?
+
+![Language Picking Screen](screenshot.png)
