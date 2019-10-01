@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pt_BR" sourcelanguage="en_US">
+<context>
+    <name>LanguagePicker</name>
+    <message>
+        <source>Select your install language:</source>
+        <translation>Selecione o idioma da instalação:</translation>
+    </message>
+    <message>
+        <source>English</source>
+        <translation>Inglês</translation>
+    </message>
+    <message>
+        <source>Bulgarian</source>
+        <translation>Búlgaro</translation>
+    </message>
+    <message>
+        <source>Dutch</source>
+        <translation>Holandês</translation>
+    </message>
+    <message>
+        <source>French</source>
+        <translation>Francês</translation>
+    </message>
+    <message>
+        <source>German</source>
+        <translation>Alemão</translation>
+    </message>
+    <message>
+        <source>Greek</source>
+        <translation>Grego</translation>
+    </message>
+    <message>
+        <source>Hungarian</source>
+        <translation>Húngaro</translation>
+    </message>
+    <message>
+        <source>Indonesian</source>
+        <translation>Indonésio</translation>
+    </message>
+    <message>
+        <source>Italian</source>
+        <translation>Italiano</translation>
+    </message>
+    <message>
+        <source>Latvian</source>
+        <translation>Letão</translation>
+    </message>
+    <message>
+        <source>Lithuanian</source>
+        <translation>Lituano</translation>
+    </message>
+    <message>
+        <source>Polish</source>
+        <translation>Polonês</translation>
+    </message>
+    <message>
+        <source>Portuguese</source>
+        <translation>Português</translation>
+    </message>
+    <message>
+        <source>Portuguese (Brazilian)</source>
+        <translation>Português (Brasileiro)</translation>
+    </message>
+    <message>
+        <source>Romanian</source>
+        <translation>Romeno</translation>
+    </message>
+    <message>
+        <source>Russian</source>
+        <translation>Russo</translation>
+    </message>
+    <message>
+        <source>Spanish</source>
+        <translation>Espanhol</translation>
+    </message>
+    <message>
+        <source>Swedish</source>
+        <translation>Suéco</translation>
+    </message>
+    <message>
+        <source>Leave</source>
+        <translation>Sair</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>Confirmar</translation>
+    </message>
+</context>
+</TS>

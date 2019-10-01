@@ -2,9 +2,15 @@
 QT += quick
 CONFIG += c++17
 
-BASEDIR   = $${PWD}
-VPATH *= $${BASEDIR}/src $${INCLUDEPATH}
+BASEDIR = $${PWD}
+VPATH *= $${BASEDIR}/src
 
-HEADERS = chaotic-installer.hpp lang.hpp
-SOURCES = main.cpp lang.cpp
+TRANSLATIONS = langs/en_US.ts langs/pt_BR.ts
+
+HEADERS = chaotic-installer.hpp lib/language.hpp
+SOURCES = main.cpp lib/language.cpp
 TARGET = bin/chaotic-installer
+
+lupdate_only {
+    SOURCES = qml/*.qml
+}
