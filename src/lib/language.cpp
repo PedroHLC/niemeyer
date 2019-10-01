@@ -10,7 +10,7 @@ Lang::Lang(QGuiApplication* app, QQmlEngine * engine, QObject *parent) :
 
 void Lang::setLang(QString locale) {
 	QString path =
-		QStringLiteral("langs/%2.qm")
+		QStringLiteral("langs/%1.qm")
 		.arg(locale);
 
 	if(!translator->load(path)) {
