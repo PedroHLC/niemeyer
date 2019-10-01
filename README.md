@@ -19,9 +19,8 @@ Anarchy aims to provide a polished and pure Arch install while leaving open ever
 
 # What is different from Anarchy Linux?
 
-Chaotic Installer is written in C++ and because of that, it's hard to say it follows KISS philosophy.
-
-Other differences
+ * Chaotic Installer has a Graphical Interface
+ * Chaotic Installer is written in C++ and because of that, it's hard to say it follows KISS philosophy.
  * It doesn't includes `yay`
 
 # Is it related to Chaotic-AUR repository?
@@ -35,4 +34,5 @@ So you won't need Wayland neither X or a WM.
 
 # Dependencies
 ```
-yay -S qt5-base qt5-quickcontrols2
+yay -S qt5-base qt5-quickcontrols2 libevdev
+```
