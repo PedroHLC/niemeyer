@@ -28,7 +28,7 @@
 #include <QQuickView>
 
 #include "chaotic-installer.hpp"
-#include "config.hpp"
+#include "lang.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -39,10 +39,10 @@ int main(int argc, char *argv[])
     QQmlContext *context = view.rootContext();
     
     // Components
-    Config * m_config = new Config(&view);
+    Lang * m_lang = new Lang(&view);
 
     // Context props
-    context->setContextProperty(QStringLiteral("config"), m_config);
+    context->setContextProperty(QStringLiteral("lang"), m_lang);
     context->setContextProperty("assetsPath", appPath.resolved(QStringLiteral(ASSETS_PATH)));
     
     // Show view

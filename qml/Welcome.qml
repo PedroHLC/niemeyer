@@ -18,33 +18,27 @@ Rectangle {
     LayoutMirroring.enabled: Qt.locale().textDirection == Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
+    Material.theme: Material.Dark
+    Material.accent: Material.Indigo
+
     Connections {
     }
 
     Image {
         anchors.fill: parent
-        source: assetsPath + config.background
+        source: assetsPath + 'background.jpg'
         fillMode: Image.PreserveAspectCrop
         clip: true
         focus: true
         smooth: true
-
-        onStatusChanged: {
-            if (status == Image.Error && source != config.defaultBackground) {
-                source = config.defaultBackground
-            }
-        }
     }
-
-    Material.theme: Material.Dark
-    Material.accent: Material.Indigo
 
     Column {
         id: content
         anchors.centerIn: parent
         
         Button {
-            text: qsTr("Hello World, I'm alive!")
+            text: qsTr(lang.mainCancel)
             highlighted: true
             Material.accent: Material.Orange
         }
