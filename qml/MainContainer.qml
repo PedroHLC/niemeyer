@@ -46,7 +46,7 @@ Rectangle {
                 anchors.fill: parent
                 ToolButton {
                     id: containerBack
-                    text: qsTr("‹")
+                    text: "‹"
                     onClicked: contentStack.pop()
                     anchors.left: parent.left
                 }
@@ -56,7 +56,7 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 ToolButton {
-                    text: qsTr("⋮")
+                    text: "⋮"
                     onClicked: menu.open()
                     anchors.right: parent.right
                 }
