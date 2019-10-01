@@ -36,9 +36,39 @@ Rectangle {
         Material.theme: Material.Light
         Material.accent: Material.Indigo
 
+        ToolBar {
+            id: containerToolBar
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            
+            Row {
+                anchors.fill: parent
+                ToolButton {
+                    id: containerBack
+                    text: qsTr("‹")
+                    onClicked: contentStack.pop()
+                    anchors.left: parent.left
+                }
+                Label {
+                    text: "Chaotic Installer"
+                    anchors.left: containerBack.right
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                ToolButton {
+                    text: qsTr("⋮")
+                    onClicked: menu.open()
+                    anchors.right: parent.right
+                }
+            }
+        }
+
         StackView {
             id: contentStack
-            anchors.fill: parent
+            anchors.top: containerToolBar.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
             initialItem: languagePicker
         }
     }

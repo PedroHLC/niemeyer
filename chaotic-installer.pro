@@ -2,8 +2,10 @@
 QT += quick
 CONFIG += c++17
 
-BASEDIR   = $${PWD}
-VPATH *= $${BASEDIR}/src $${INCLUDEPATH}
+BASEDIR = $${PWD}
+VPATH *= $${BASEDIR}/src
+
+TRANSLATIONS = langs/en-us.ts  langs/pt-br.ts
 
 HEADERS = chaotic-installer.hpp
 SOURCES = main.cpp

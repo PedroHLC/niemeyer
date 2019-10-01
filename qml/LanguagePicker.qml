@@ -15,7 +15,7 @@ Component {
         Row {
             id: pickLangTitleRow
             anchors.top: parent.top
-            anchors.topMargin: 10
+            anchors.topMargin: 20
             anchors.horizontalCenter: parent.horizontalCenter
             
             Text {
@@ -25,6 +25,7 @@ Component {
         Row {
             anchors.top: pickLangTitleRow.bottom
             anchors.bottom: pickLangActionRow.top
+            anchors.bottomMargin: 20
             width: parent.width
             
             //Flickable {
@@ -32,8 +33,7 @@ Component {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
-                //width: 480
-                height: 480
+                width: 320
                 clip: true
                 
                 contentWidth: pickLangList.width
@@ -48,7 +48,6 @@ Component {
                 }
 
                 Column {
-                    //width: parent.width
                     id: pickLangList
 
                     RadioButton {text: qsTr('English'); checked: true} 
@@ -76,12 +75,22 @@ Component {
         Row {
             id: pickLangActionRow
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 10
+            anchors.bottomMargin: 20
             anchors.horizontalCenter: parent.horizontalCenter
+            spacing: 80
+
+            Column {
+                Button {
+                    text: qsTr('Leave')
+                    onClicked: Qt.quit() 
+                }
+            }
 
             Column {
                 Button {
                     text: qsTr('Confirm')
+                    highlighted: true
+                    Material.background: Material.Indigo
                 }
             }
         }

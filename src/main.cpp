@@ -26,24 +26,34 @@
 #include <QObject>
 #include <QQmlComponent>
 #include <QQuickView>
+#include <QTranslator>
 
 #include "chaotic-installer.hpp"
-#include "lang.hpp"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     QUrl appPath(app.applicationDirPath());
     
+    // Get view and context
     QQuickView view;
     QQmlContext *context = view.rootContext();
+
+    // Set translator
+    QTranslator* translator = new QTranslator;
+    translator->load(QStringLiteral("langs/pt-br.ts"));
+    app.installTranslator(translator);
+
+    // Debug locale
+    QLocale::setDefault(QLocale(QLocale::Portuguese, QLocale::Brazil));
+    qDebug() << QLocale().name();
     
     // Components
-    Lang * m_lang = new Lang(&view);
+    //Component * m_compo = new Component(&view);
 
     // Context props
-    context->setContextProperty(QStringLiteral("lang"), m_lang);
-    context->setContextProperty("assetsPath", appPath.resolved(QStringLiteral(ASSETS_PATH)));
+    //context->setContextProperty(QStringLiteral("compo"), m_compo);
+    context->setContextProperty(QStringLiteral("assetsPath"), appPath.resolved(QStringLiteral(ASSETS_PATH)));
     
     // Show view
     view.setSource(appPath.resolved(QStringLiteral(QML_PATH "MainContainer.qml")));

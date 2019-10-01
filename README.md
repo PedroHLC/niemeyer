@@ -39,6 +39,7 @@ yay -S qt5-base qt5-quickcontrols2 libevdev
 
 # How to compile?
 ```
+yay -S qt5-tools
 cd chaotic-installer-qt
 qmake -project chaotic-installer.pro
 make

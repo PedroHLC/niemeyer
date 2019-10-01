@@ -3,3 +3,5 @@ Makefile
 *.o
 bin/
 moc_*
+/*.json
+*.qm
