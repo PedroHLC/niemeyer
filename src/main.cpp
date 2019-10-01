@@ -21,6 +21,7 @@
 */
 
 #include <QGuiApplication>
+#include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QObject>
 #include <QQmlComponent>
@@ -52,6 +53,9 @@ int main(int argc, char *argv[])
     context->setContextProperty(QStringLiteral("lang"), m_lang);
     context->setContextProperty(QStringLiteral("assetsPath"), appPath.resolved(QStringLiteral(ASSETS_PATH)));
     
+    // Some connections
+    QObject::connect(view.engine(), &QQmlApplicationEngine::quit, &QGuiApplication::quit);
+
     // Show view
     view.setSource(appPath.resolved(QStringLiteral(QML_PATH "MainContainer.qml")));
     view.setResizeMode(QQuickView::SizeRootObjectToView);
