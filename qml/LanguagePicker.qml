@@ -19,7 +19,7 @@ Component {
             anchors.horizontalCenter: parent.horizontalCenter
             
             Text {
-                text: qsTr('Pedro has no ideia what he\'s doing')
+                text: qsTr('Select your install language:')
             }
         }
         Row {
@@ -27,45 +27,48 @@ Component {
             anchors.bottom: pickLangActionRow.top
             width: parent.width
             
-            Flickable {
+            //Flickable {
+            ScrollView {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                width: 480
+                anchors.horizontalCenter: parent.horizontalCenter
+                //width: 480
+                height: 480
                 clip: true
-                flickableDirection: Flickable.VerticalFlick
                 
-                ScrollBar.vertical: ScrollBar{ policy: ScrollBar.AlwaysOn }
+                contentWidth: pickLangList.width
+                contentHeight: pickLangList.height
+                
+                ScrollBar.vertical: ScrollBar {
+                    policy: ScrollBar.AlwaysOn;
+                    parent: parent.parent
+                    anchors.top: parent.top
+                    anchors.left: parent.right
+                    anchors.bottom: parent.bottom
+                }
+
                 Column {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    RadioButton {text: qsTr('English')} 
-                    RadioButton {text: qsTr('Portuguese')} 
-                    RadioButton {text: qsTr('Spanish')} 
-                    RadioButton {text: qsTr('French')} 
-                    RadioButton {text: qsTr('Italian')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')}
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')} 
-                    RadioButton {text: qsTr('????????')}
+                    //width: parent.width
+                    id: pickLangList
+
+                    RadioButton {text: qsTr('English'); checked: true} 
+                    RadioButton {text: qsTr('Bulgarian')}
+                    RadioButton {text: qsTr('Dutch')}
+                    RadioButton {text: qsTr('French')}
+                    RadioButton {text: qsTr('German')}
+                    RadioButton {text: qsTr('Greek')}
+                    RadioButton {text: qsTr('Hungarian')}
+                    RadioButton {text: qsTr('Indonesian')}
+                    RadioButton {text: qsTr('Italian')}
+                    RadioButton {text: qsTr('Latvian')}
+                    RadioButton {text: qsTr('Lithuanian')}
+                    RadioButton {text: qsTr('Polish')}
+                    RadioButton {text: qsTr('Portuguese')}
+                    RadioButton {text: qsTr('Portuguese (Brazilian)')}
+                    RadioButton {text: qsTr('Romanian')}
+                    RadioButton {text: qsTr('Russian')}
+                    RadioButton {text: qsTr('Spanish')}
+                    RadioButton {text: qsTr('Swedish')}
                 }
             }
         }
@@ -78,7 +81,7 @@ Component {
 
             Column {
                 Button {
-                    text: qsTr('That\'s what I want')
+                    text: qsTr('Confirm')
                 }
             }
         }
