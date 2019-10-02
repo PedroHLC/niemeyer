@@ -23,6 +23,7 @@ Component {
             }
         }
         Row {
+            id: pickLangListView
             anchors.top: pickLangTitleRow.bottom
             anchors.bottom: pickLangActionRow.top
             anchors.bottomMargin: 20
@@ -41,9 +42,9 @@ Component {
                 
                 ScrollBar.vertical: ScrollBar {
                     policy: ScrollBar.AlwaysOn;
-                    parent: parent.parent
+                    parent: pickLangListView
                     anchors.top: parent.top
-                    anchors.left: parent.right
+                    anchors.right: parent.right
                     anchors.bottom: parent.bottom
                 }
 
@@ -81,16 +82,17 @@ Component {
 
             Column {
                 Button {
-                    text: qsTr('Leave')
-                    onClicked: Qt.quit() 
+                    text: qsTr('Abort')
+                    onClicked: Qt.quit()
                 }
             }
 
             Column {
                 Button {
-                    text: qsTr('Confirm')
+                    text: qsTr('Next')
                     highlighted: true
                     Material.background: Material.Indigo
+                    onClicked: contentStack.push(keyboardPicker)
                 }
             }
         }

@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-export QT_QPA_EGLFS_NO_LIBINPUT=1
 export QT_QPA_PLATFORM=eglfs
 export XDG_RUNTIME_DIR=/tmp/chaotic-intaller-runtime
 mkdir -p "$XDG_RUNTIME_DIR" && chmod 0700 "$XDG_RUNTIME_DIR"

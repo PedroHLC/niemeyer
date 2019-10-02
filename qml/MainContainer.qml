@@ -30,6 +30,7 @@ Rectangle {
     Rectangle {
         width: 640
         height: 480
+        clip: true
         anchors.centerIn: parent
         color: Material.background
         
@@ -74,4 +75,5 @@ Rectangle {
     }
 
     LanguagePicker { id: languagePicker }
+    KeyboardPicker { id: keyboardPicker }
 }

@@ -21,6 +21,7 @@
 */
 
 #include <QGuiApplication>
+#include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QObject>
 #include <QQmlComponent>
@@ -29,6 +30,7 @@
 
 #include "chaotic-installer.hpp"
 #include "lib/language.hpp"
+#include "lib/locale.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -46,12 +48,18 @@ int main(int argc, char *argv[])
     // Components
     //Component * m_compo = new Component(&view);
     Lang * m_lang = new Lang(&app, view.engine(), &view);
+    Locale * m_locale = new Locale(&view);
 
     // Context props
     //context->setContextProperty(QStringLiteral("compo"), m_compo);
     context->setContextProperty(QStringLiteral("lang"), m_lang);
+    context->setContextProperty(QStringLiteral("setupLocale"), m_locale);
     context->setContextProperty(QStringLiteral("assetsPath"), appPath.resolved(QStringLiteral(ASSETS_PATH)));
+    context->setContextProperty(QStringLiteral("allKeyboards"), QVariant::fromValue(m_locale->allKeyboards()));
     
+    // Some connections
+    QObject::connect(view.engine(), &QQmlApplicationEngine::quit, &QGuiApplication::quit);
+
     // Show view
     view.setSource(appPath.resolved(QStringLiteral(QML_PATH "MainContainer.qml")));
     view.setResizeMode(QQuickView::SizeRootObjectToView);
