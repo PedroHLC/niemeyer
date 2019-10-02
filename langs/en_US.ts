@@ -2,6 +2,27 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US" sourcelanguage="en_US">
 <context>
+    <name>KeyboardPicker</name>
+    <message>
+        <source>Select your key-map:
+
+If unsure leave default</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Testing area</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>LanguagePicker</name>
     <message>
         <source>Select your install language:</source>
@@ -12,79 +33,15 @@
         <translation></translation>
     </message>
     <message>
-        <source>Bulgarian</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Dutch</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>French</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>German</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Greek</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Hungarian</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Indonesian</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Italian</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Latvian</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Lithuanian</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Polish</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Portuguese</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Portuguese (Brazilian)</source>
         <translation></translation>
     </message>
     <message>
-        <source>Romanian</source>
+        <source>Abort</source>
         <translation></translation>
     </message>
     <message>
-        <source>Russian</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Spanish</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Swedish</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Leave</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Confirm</source>
+        <source>Next</source>
         <translation></translation>
     </message>
 </context>

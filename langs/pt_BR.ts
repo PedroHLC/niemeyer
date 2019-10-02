@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pt_BR" sourcelanguage="en_US">
 <context>
+    <name>KeyboardPicker</name>
+    <message>
+        <source>Select your key-map:
+
+If unsure leave default</source>
+        <translation>Selecione o seu layout de teclado:
+
+Caso não tenha certeza, deixe o padrão</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <source>Testing area</source>
+        <translation>Area de teste</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Próximo</translation>
+    </message>
+</context>
+<context>
     <name>LanguagePicker</name>
     <message>
         <source>Select your install language:</source>
@@ -13,51 +36,51 @@
     </message>
     <message>
         <source>Bulgarian</source>
-        <translation>Búlgaro</translation>
+        <translation type="vanished">Búlgaro</translation>
     </message>
     <message>
         <source>Dutch</source>
-        <translation>Holandês</translation>
+        <translation type="vanished">Holandês</translation>
     </message>
     <message>
         <source>French</source>
-        <translation>Francês</translation>
+        <translation type="vanished">Francês</translation>
     </message>
     <message>
         <source>German</source>
-        <translation>Alemão</translation>
+        <translation type="vanished">Alemão</translation>
     </message>
     <message>
         <source>Greek</source>
-        <translation>Grego</translation>
+        <translation type="vanished">Grego</translation>
     </message>
     <message>
         <source>Hungarian</source>
-        <translation>Húngaro</translation>
+        <translation type="vanished">Húngaro</translation>
     </message>
     <message>
         <source>Indonesian</source>
-        <translation>Indonésio</translation>
+        <translation type="vanished">Indonésio</translation>
     </message>
     <message>
         <source>Italian</source>
-        <translation>Italiano</translation>
+        <translation type="vanished">Italiano</translation>
     </message>
     <message>
         <source>Latvian</source>
-        <translation>Letão</translation>
+        <translation type="vanished">Letão</translation>
     </message>
     <message>
         <source>Lithuanian</source>
-        <translation>Lituano</translation>
+        <translation type="vanished">Lituano</translation>
     </message>
     <message>
         <source>Polish</source>
-        <translation>Polonês</translation>
+        <translation type="vanished">Polonês</translation>
     </message>
     <message>
         <source>Portuguese</source>
-        <translation>Português</translation>
+        <translation type="vanished">Português</translation>
     </message>
     <message>
         <source>Portuguese (Brazilian)</source>
@@ -65,27 +88,35 @@
     </message>
     <message>
         <source>Romanian</source>
-        <translation>Romeno</translation>
+        <translation type="vanished">Romeno</translation>
     </message>
     <message>
         <source>Russian</source>
-        <translation>Russo</translation>
+        <translation type="vanished">Russo</translation>
     </message>
     <message>
         <source>Spanish</source>
-        <translation>Espanhol</translation>
+        <translation type="vanished">Espanhol</translation>
     </message>
     <message>
         <source>Swedish</source>
-        <translation>Suéco</translation>
+        <translation type="vanished">Suéco</translation>
     </message>
     <message>
         <source>Leave</source>
-        <translation>Sair</translation>
+        <translation type="vanished">Sair</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <translation type="vanished">Confirmar</translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation>Abortar</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Próximo</translation>
     </message>
 </context>
 </TS>
