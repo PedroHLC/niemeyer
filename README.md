@@ -34,7 +34,7 @@ So you won't need Wayland, neither X nor a WM.
 
 # Dependencies
 ```
-yay -S qt5-base qt5-quickcontrols2 libevdev
+yay -S qt5-base qt5-quickcontrols2 libinput libxkbcommon
 ```
 
 # How to compile?
@@ -49,7 +49,6 @@ make
 Open a TTY without an open graphical session (`Ctrl+Alt+F3` should do it):
 
 ```
-export QT_QPA_EGLFS_NO_LIBINPUT=1
 ./bin/chaotic-installer
 ```
 

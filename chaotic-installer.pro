@@ -7,8 +7,10 @@ VPATH *= $${BASEDIR}/src
 
 TRANSLATIONS = langs/en_US.ts langs/pt_BR.ts
 
-HEADERS = chaotic-installer.hpp lib/language.hpp
-SOURCES = main.cpp lib/language.cpp
+HEADERS = chaotic-installer.hpp \
+	lib/language.hpp lib/locale.hpp
+SOURCES = main.cpp \
+	lib/language.cpp  lib/locale.cpp
 TARGET = bin/chaotic-installer
 
 lupdate_only {
