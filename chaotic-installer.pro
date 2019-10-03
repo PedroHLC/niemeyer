@@ -1,5 +1,6 @@
 #!/usr/bin/qmake -makefile
 QT += quick
+QT += quickcontrols2
 CONFIG += c++17
 
 BASEDIR = $${PWD}

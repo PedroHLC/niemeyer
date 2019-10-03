@@ -26,6 +26,7 @@
 #include <QObject>
 #include <QQmlComponent>
 #include <QQuickView>
+#include <QtQuickControls2/QQuickStyle>
 #include <QTranslator>
 
 #include "chaotic-installer.hpp"
@@ -36,6 +37,10 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     QUrl appPath(app.applicationDirPath());
+
+    // I coded this to use Material, but never enabled it.
+    // When I did I decided to keep it in pure Qt.
+    //QQuickStyle::setStyle("Material");
     
     // Get view and context
     QQuickView view;
