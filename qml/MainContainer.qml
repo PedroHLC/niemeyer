@@ -78,4 +78,5 @@ Rectangle {
     LanguagePicker { id: languagePicker }
     KeyboardPicker { id: keyboardPicker }
     NetworkUp { id: networkUp }
+    WifiMenu { id: wifiMenu }
 }

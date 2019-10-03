@@ -12,29 +12,52 @@ import QtQuick.Controls.Material 2.12
 
 Component {
     Column {
+
         Row {
-            id: networkUpTitleRow
             anchors.top: parent.top
             anchors.topMargin: 20
             anchors.horizontalCenter: parent.horizontalCenter
+            
+            Column {
+                spacing: 20
 
-            Text {
-                text: qsTr('Set your network!')
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    Text {
+                        text: qsTr('Set your network!')
+                    }
+                }
+
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    Text {
+                        text: qsTr('You\'re currently: %1'.arg(net.available ? qsTr('ONLINE') : qsTr('OFFLINE')))
+                    } 
+                }
+
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    visible: net.wifiCardExists
+
+                    Button {
+                        text: qsTr('Select Wireless AP')
+                        onClicked: contentStack.push(wifiMenu)
+                    }
+                }
+
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    Button {
+                        text: qsTr('Configure Internet Address')
+                    }
+                }
             }
         }
 
         Row {
-            anchors.topMargin: 20
-            anchors.top: networkUpTitleRow.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            Text {
-                text: qsTr('You\'re currently: ' + 'OFFLINE')
-            } 
-        }
-
-        Row {
-            id: pickKeyboardActionRow
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 20
             anchors.horizontalCenter: parent.horizontalCenter
@@ -48,9 +71,18 @@ Component {
             }
 
             Column {
+                visible: net.available
                 Button {
                     text: qsTr('Next')
                     highlighted: true
+                }
+            }
+
+            Column {
+                visible: !net.available
+                anchors.verticalCenter: parent.verticalCenter
+                Text {
+                    text: qsTr('Network required')
                 }
             }
         }
