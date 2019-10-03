@@ -11,18 +11,15 @@ void Locale::toggleLocale(QString locale) {
 	//TODO
 }
 
-QString Locale::getSelectedKeyboard()
-{
+QString Locale::getSelectedKeyboard() {
     return selectedKeyboard;
 }
 
-QStringList Locale::getSelectedLocales()
-{
+QStringList Locale::getSelectedLocales() {
     return selectedLocales;
 }
 
-QString Locale::getSelectedZone()
-{
+QString Locale::getSelectedZone() {
     return selectedZone;
 }
 
@@ -48,9 +45,8 @@ QDir Locale::keymapDir = QDir(QStringLiteral("/usr/share/kbd/keymaps/i386/qwerty
 
 QStringList Locale::allKeyboards() const {
 	if(keyboardsCache.size() < 1) {
-		keymapDir.setNameFilters(QStringList() << "*.map.gz");
 		keyboardsCache = keymapDir
-			.entryList()
+			.entryList(QStringList() << "*.map.gz")
 			.replaceInStrings(".map.gz", "");
 	}
 	return keyboardsCache;	
