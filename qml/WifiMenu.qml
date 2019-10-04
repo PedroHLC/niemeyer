@@ -12,6 +12,17 @@ import QtQuick.Controls.Material 2.12
 
 Component {
     Column {
+        Connections {
+            target: net
+
+            onWifiAPsChanged: {
+                apPicker.currentIndex = 0;
+            }
+
+            onWifiCardsChanged: {
+                wifiIfacePicker.currentIndex = 0;
+            }
+        }
 
         Row {
             anchors.top: parent.top
@@ -30,7 +41,9 @@ Component {
                     }
                     Column {
                         ComboBox {
-                            model: ['wlp1s0', 'wlp2s0']
+                            id: wifiIfacePicker
+                            model: net.wifiCards
+                            onActivated: net.setWifiIface(currentIndex)
                         }
                     }
                 }
@@ -44,11 +57,13 @@ Component {
                     }
                     Column {
                         ComboBox {
-                            model: ['#NET-CLARO-WIFI']
+                            id: apPicker
+                            model: net.wifiAPs
+                            onActivated: net.setWifiAP(currentIndex)
                         }
                     }
                     Column {
-                        Button { text: qsTr('Refresh') }
+                        Button { text: qsTr('Refresh'); onClicked: net.scanWifi() }
                     }
                 }
 
@@ -62,6 +77,8 @@ Component {
                     Column {
                         TextField {
                             placeholderText: qsTr('WPA2 personal password only')
+                            passwordCharacter: "*"
+                            echoMode: TextInput.Password
                         }
                     }
                 }
@@ -86,7 +103,7 @@ Component {
 
             Column {
                 Button {
-                    text: qsTr('Save && Return')
+                    text: qsTr('View script && Apply')
                     highlighted: true
                 }
             }
