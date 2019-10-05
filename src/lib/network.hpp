@@ -7,11 +7,13 @@
 class Network : public QObject {
 	Q_OBJECT
 	Q_PROPERTY(bool available READ getAvailability NOTIFY availabilityChanged)
-	Q_PROPERTY(bool wifiCardExists READ getWifiCardsExists NOTIFY wifiCardsChanged)
-	Q_PROPERTY(QStringList wifiCards READ getWifiCards NOTIFY wifiCardsChanged)
+	Q_PROPERTY(bool wifiCardExists READ getWifiCardsExists NOTIFY cardsChanged)
+	Q_PROPERTY(QStringList cards READ getCards NOTIFY cardsChanged)
+	Q_PROPERTY(QStringList wifiCards READ getWifiCards NOTIFY cardsChanged)
 	Q_PROPERTY(QStringList wifiAPs READ getWifiAPs NOTIFY wifiAPsChanged)
-	//Q_PROPERTY(QString selectedWifiIface READ getWifiIface WRITE setWifiIface NOTIFY wifiCardsChanged)
-	//Q_PROPERTY(QString selectedWifiAP READ getWifiSSID WRITE setWifiAP NOTIFY wifiAPsChanged)
+	Q_PROPERTY(QString wifiPassword READ getWifiPassword WRITE setWifiPassword NOTIFY wifiPasswordChanged)
+	Q_PROPERTY(QString wifiProfile READ getWifiProfile WRITE setWifiProfile NOTIFY wifiProfileChanged)
+	Q_PROPERTY(QString ethProfile READ getEthProfile WRITE setEthProfile NOTIFY ethProfileChanged)
 
 private:
 	static QDir interfacesDir;
@@ -20,6 +22,12 @@ private:
 	QStringList wifiAPs;
 	QString wifiIface;
 	QString wifiSSID;
+	QString wifiPsw;
+	QString wifiProfile;
+	QString ethIface;
+	QString ethProfile;
+
+	void applyProfile(QString);
 
 public:
 	explicit Network(QObject *parent = nullptr);
@@ -31,17 +39,31 @@ public:
 	QStringList getWifiCards();
 	QStringList getCards();
 	QString getWifiIface();
+	QString getWifiPassword();
+	QString getWifiProfile();
+	QString getEthIface();
+	QString getEthProfile();
 
-	void loadCards();
-
+	Q_INVOKABLE void loadCards();
 	Q_INVOKABLE void scanWifi();
 	Q_INVOKABLE void setWifiAP(int ap_i);
 	Q_INVOKABLE void setWifiIface(int iface_i);
+	Q_INVOKABLE void setWifiPassword(QString password);
+	Q_INVOKABLE void setWifiProfile(QString script);
+	Q_INVOKABLE void genWifiProfile();
+	Q_INVOKABLE void applyWifiProfile();
+	Q_INVOKABLE void setEthIface(int iface_i);
+	Q_INVOKABLE void setEthProfile(QString script);
+	Q_INVOKABLE void genEthProfile();
+	Q_INVOKABLE void applyEthProfile();
 
 signals:
 	void availabilityChanged();
+	void cardsChanged();
 	void wifiAPsChanged();
-	void wifiCardsChanged();
+	void wifiPasswordChanged();
+	void wifiProfileChanged();
+	void ethProfileChanged();
 };
 
 #endif // NETWORK_H

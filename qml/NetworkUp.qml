@@ -51,8 +51,17 @@ Component {
                     anchors.horizontalCenter: parent.horizontalCenter
 
                     Button {
-                        text: qsTr('Configure Internet Address')
+                        text: qsTr('Configure Ethernet')
+                        onClicked: contentStack.push(ethMenu)
                     }
+                }
+
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    Text {
+                        text: qsTr('* In both options you\'ll find a form that will be used for generating a netctl profile,\nthis profile can be manually edited before starting it.')
+                    } 
                 }
             }
         }

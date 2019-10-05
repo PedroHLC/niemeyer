@@ -19,7 +19,7 @@ Component {
                 apPicker.currentIndex = 0;
             }
 
-            onWifiCardsChanged: {
+            onCardsChanged: {
                 wifiIfacePicker.currentIndex = 0;
             }
         }
@@ -78,7 +78,46 @@ Component {
                         TextField {
                             placeholderText: qsTr('WPA2 personal password only')
                             passwordCharacter: "*"
-                            echoMode: TextInput.Password
+                            echoMode: TextInput.PasswordEchoOnEdit
+                            onEditingFinished: net.setWifiPassword(text)
+                            text: net.wifiPassword
+                        }
+                    }
+                }
+
+                Row {
+                    Button {
+                        text: qsTr('Generate profile')
+                        onClicked: net.genWifiProfile();
+                    }
+                }
+
+                Row {
+                    id: wifiProfileTextView
+                    width: 480
+                    height: 90
+                    ScrollView {
+                        anchors.top: parent.top
+                        width: parent.width
+                        height: parent.height
+                        clip: true
+
+                        contentWidth: wifiProfileText.width
+                        contentHeight: wifiProfileText.height
+                        
+                        ScrollBar.vertical: ScrollBar {
+                            policy: ScrollBar.AlwaysOn;
+                            parent: wifiProfileTextView
+                            anchors.top: parent.top
+                            anchors.right: parent.right
+                            anchors.bottom: parent.bottom
+                        }
+
+                        TextArea {
+                            id: wifiProfileText
+                            text: net.wifiProfile
+                            width: parent.width 
+                            onEditingFinished: net.setWifiProfile(text)
                         }
                     }
                 }
@@ -103,8 +142,12 @@ Component {
 
             Column {
                 Button {
-                    text: qsTr('View script && Apply')
+                    text: qsTr('Apply')
                     highlighted: true
+                    onClicked: {
+                        net.applyWifiProfile();
+                        contentStack.pop();
+                    }
                 }
             }
         }

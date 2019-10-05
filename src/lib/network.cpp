@@ -9,7 +9,7 @@ Network::Network(QObject *parent) : QObject (parent) {
 }
 
 bool Network::getAvailability() {
-    return false;
+	return QProcess::execute("wget -q --spider http://google.com") == 0;
 }
 
 bool Network::getWifiCardsExists() {
@@ -32,6 +32,18 @@ QString Network::getWifiIface() {
 	return wifiIface;
 }
 
+QString Network::getWifiProfile() {
+	return wifiProfile;
+}
+
+QString Network::getEthProfile() {
+	return ethProfile;
+}
+
+QString Network::getWifiPassword() {
+	return wifiPsw;
+}
+
 QDir Network::interfacesDir = QDir(QStringLiteral("/sys/class/net"));
 
 void Network::loadCards() {
@@ -52,8 +64,11 @@ void Network::loadCards() {
 
 	if(wifiCardsCache.size() >= 1)
 		setWifiIface(0);
+
+	if(cardsCache.size() >= 1)
+		setEthIface(0);
 	
-	emit wifiCardsChanged();
+	emit cardsChanged();
 }
 
 void Network::scanWifi() {
@@ -90,3 +105,72 @@ void Network::setWifiAP(int ap_i) {
 	wifiSSID = wifiAPs.at(ap_i);
 	qDebug() << "User selected " << wifiSSID;
 }
+
+void Network::setWifiPassword(QString psw) {
+	wifiPsw = psw;
+	qDebug() << QString("%1 characters password was entered.").arg(psw.size());
+
+	emit wifiPasswordChanged();
+}
+
+void Network::setWifiProfile(QString profile) {
+	wifiProfile = profile;
+
+	emit wifiProfileChanged();
+}
+
+void Network::genWifiProfile() {
+	wifiProfile = QString("Interface=%1\n"
+	"Connection=wireless\n"
+	"Security=wpa\n"
+	"IP=dhcp\n"
+	"ESSID='%2'\n"
+	"Key=\"%3\"\n"
+	).arg(wifiIface).arg(wifiSSID).arg(wifiPsw);
+
+	emit wifiProfileChanged();
+}
+
+void Network::applyWifiProfile() {
+	if (wifiProfile.size() < 1)
+		genWifiProfile();
+	applyProfile(wifiProfile);
+}
+
+void Network::applyProfile(QString profileData) {
+	QProcess::execute(QStringLiteral("netctl stop-all"));
+
+	QFile proFile("/etc/netctl/chaotic-setup");
+	proFile.write(profileData.toUtf8());
+	proFile.close();
+
+	QProcess::execute(QStringLiteral("netctl start chaotic-setup"));
+
+	emit availabilityChanged();	
+}
+
+void Network::setEthIface(int iface_i) {
+	ethIface = cardsCache.at(iface_i);
+}
+
+void Network::setEthProfile(QString profile) {
+	ethProfile = profile;
+
+	emit ethProfileChanged();
+}
+
+void Network::genEthProfile() {
+	ethProfile = QString("Interface=%1\n"
+	"Connection=ethernet\n"
+	"IP=dhcp\n"
+	).arg(ethIface);
+
+	emit ethProfileChanged();
+}
+
+void Network::applyEthProfile() {
+	if (ethProfile.size() < 1)
+		genEthProfile();
+	applyProfile(ethProfile);
+}
+

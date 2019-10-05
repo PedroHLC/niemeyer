@@ -79,4 +79,5 @@ Rectangle {
     KeyboardPicker { id: keyboardPicker }
     NetworkUp { id: networkUp }
     WifiMenu { id: wifiMenu }
+    EthernetMenu { id: ethMenu }
 }
