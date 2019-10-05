@@ -80,4 +80,5 @@ Rectangle {
     NetworkUp { id: networkUp }
     WifiMenu { id: wifiMenu }
     EthernetMenu { id: ethMenu }
+    MirrorsSort { id: mirrorsSort }
 }

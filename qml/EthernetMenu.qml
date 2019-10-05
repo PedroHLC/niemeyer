@@ -1,4 +1,4 @@
-/*  Chaotic Installer Wireless Config Screen
+/*  Chaotic Installer Ethernet Config Screen
 
     I like to write this by hand, do whatever you want, but keep diff clean to read, so I
     can keep writing it manually.
@@ -15,12 +15,8 @@ Component {
         Connections {
             target: net
 
-            onWifiAPsChanged: {
-                apPicker.currentIndex = 0;
-            }
-
             onCardsChanged: {
-                wifiIfacePicker.currentIndex = 0;
+                ethIfacePicker.currentIndex = 0;
             }
         }
 
@@ -41,46 +37,9 @@ Component {
                     }
                     Column {
                         ComboBox {
-                            id: wifiIfacePicker
-                            model: net.wifiCards
-                            onActivated: net.setWifiIface(currentIndex)
-                        }
-                    }
-                }
-
-                Row {
-                    spacing: 20
-
-                    Column {
-                        anchors.verticalCenter: parent.verticalCenter
-                        Text { text: qsTr('Select SSID: ') }
-                    }
-                    Column {
-                        ComboBox {
-                            id: apPicker
-                            model: net.wifiAPs
-                            onActivated: net.setWifiAP(currentIndex)
-                        }
-                    }
-                    Column {
-                        Button { text: qsTr('Refresh'); onClicked: net.scanWifi() }
-                    }
-                }
-
-                Row {
-                    spacing: 20
-                    
-                    Column {
-                        anchors.verticalCenter: parent.verticalCenter
-                        Text { text: qsTr('Password: ') }
-                    }
-                    Column {
-                        TextField {
-                            placeholderText: qsTr('WPA2 personal password only')
-                            passwordCharacter: "*"
-                            echoMode: TextInput.PasswordEchoOnEdit
-                            onEditingFinished: net.setWifiPassword(text)
-                            text: net.wifiPassword
+                            id: ethIfacePicker
+                            model: net.cards
+                            onActivated: net.setEthIface(currentIndex)
                         }
                     }
                 }
@@ -88,36 +47,36 @@ Component {
                 Row {
                     Button {
                         text: qsTr('Generate profile')
-                        onClicked: net.genWifiProfile();
+                        onClicked: net.genEthProfile();
                     }
                 }
 
                 Row {
-                    id: wifiProfileTextView
+                    id: ethProfileTextView
                     width: 480
-                    height: 90
+                    height: 240
                     ScrollView {
                         anchors.top: parent.top
                         width: parent.width
                         height: parent.height
                         clip: true
 
-                        contentWidth: wifiProfileText.width
-                        contentHeight: wifiProfileText.height
+                        contentWidth: ethProfileText.width
+                        contentHeight: ethProfileText.height
                         
                         ScrollBar.vertical: ScrollBar {
                             policy: ScrollBar.AlwaysOn;
-                            parent: wifiProfileTextView
+                            parent: ethProfileTextView
                             anchors.top: parent.top
                             anchors.right: parent.right
                             anchors.bottom: parent.bottom
                         }
 
                         TextArea {
-                            id: wifiProfileText
-                            text: net.wifiProfile
+                            id: ethProfileText
+                            text: net.ethProfile
                             width: parent.width 
-                            onEditingFinished: net.setWifiProfile(text)
+                            onEditingFinished: net.setEthProfile(text)
                         }
                     }
                 }
@@ -126,12 +85,14 @@ Component {
         }
 
         Row {
+            id: pickKeyboardActionRow
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 20
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: 80
 
             Column {
+                id: pickKeyboardBackBtnCol
                 Button {
                     text: qsTr('Cancel')
                     onClicked: contentStack.pop()
@@ -143,7 +104,7 @@ Component {
                     text: qsTr('Apply')
                     highlighted: true
                     onClicked: {
-                        net.applyWifiProfile();
+                        net.applyEthProfile();
                         contentStack.pop();
                     }
                 }
