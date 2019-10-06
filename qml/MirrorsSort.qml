@@ -19,36 +19,62 @@ Component {
 
         DelegateModel {
             id: mirrorsDelg
-            model: [ "Mirror 1", "Mirror 2", "Mirror 3" ]
+            model: allMirrors
             delegate: MouseArea {
-                id: dragArea
-
                 anchors { left: parent.left; right: parent.right }
-                height: content.height
+                height: mainContent.height
 
+                id: draggable
                 property bool held: false
-                drag.target: held ? content : undefined
+                property real lastY
+                drag.target: held ? draggable : undefined
                 drag.axis: Drag.YAxis
-                pressAndHoldInterval: 200
-                onPressAndHold: held = true
-                onReleased: held = false
-            
-                Rectangle {
-                    id:content
-                    Drag.active: dragArea.held
-                    Drag.source: dragArea
-                    height: 40
-                    width: parent.width
+                pressAndHoldInterval: 150
+                onPressAndHold: if(!held) {
+                    lastY = y
+                    held = true
+                }
+                onReleased: {
+                    held = false
+                    backAnimY.from = draggable.y
+                    backAnimY.to = lastY
+                    backAnim.start()
+                }
+                z: held ? 2 : 1
                     
-                    CheckBox { checked: true; text: modelData }
+                Drag.active: held
+                Drag.source: draggable
+
+                Row {
+                    id: mainContent
+                    spacing: 20
+
+                    anchors.leftMargin: 20
+                    Text {
+                        text: "⇅"
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    CheckBox {
+                        text: modelData.url
+                        checked: modelData.enabled
+                    }
                 }
 
                 DropArea {
-                    anchors { fill: parent; margins: 10 }
+                    anchors.fill: parent
+                    onEntered: {
+                        var entering = drag.source
+                        var over = draggable
+                        if (over != entering) {
+                            entering.lastY = over.y
+                            mirrorsDelg.items.move(entering.DelegateModel.itemsIndex, over.DelegateModel.itemsIndex)
+                        }
+                    }
+                }
 
-                    onEntered: mirrorsDelg.items.move(
-                        drag.source.DelegateModel.itemsIndex,
-                        dragArea.DelegateModel.itemsIndex)
+                ParallelAnimation {
+                    id: backAnim
+                    SpringAnimation { id: backAnimY; target: draggable; property: "y"; duration: 500; spring: 2; damping: 0.2 }
                 }
             }
         }
