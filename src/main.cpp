@@ -33,6 +33,7 @@
 #include "lib/language.hpp"
 #include "lib/locale.hpp"
 #include "lib/network.hpp"
+#include "lib/mirrors.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -56,12 +57,14 @@ int main(int argc, char *argv[])
     Lang * m_lang = new Lang(&app, view.engine(), &view);
     Locale * m_locale = new Locale(&view);
     Network * m_net = new Network(&view);
+    Mirrors * m_mirrors = new Mirrors(&view);
 
     // Context props
     //context->setContextProperty(QStringLiteral("compo"), m_compo);
     context->setContextProperty(QStringLiteral("lang"), m_lang);
     context->setContextProperty(QStringLiteral("setupLocale"), m_locale);
     context->setContextProperty(QStringLiteral("net"), m_net);
+    context->setContextProperty(QStringLiteral("mirrors"), m_mirrors);
     context->setContextProperty(QStringLiteral("assetsPath"), appPath.resolved(QStringLiteral(ASSETS_PATH)));
     context->setContextProperty(QStringLiteral("allKeyboards"), QVariant::fromValue(m_locale->allKeyboards()));
     

@@ -19,7 +19,7 @@ Component {
 
         DelegateModel {
             id: mirrorsDelg
-            model: allMirrors
+            model: mirrors.urlList
             delegate: MouseArea {
                 anchors { left: parent.left; right: parent.right }
                 height: mainContent.height
@@ -55,8 +55,9 @@ Component {
                         anchors.verticalCenter: parent.verticalCenter
                     }
                     CheckBox {
-                        text: modelData.url
-                        checked: modelData.enabled
+                        text: modelData
+                        checked: true
+                        onClicked: mirrors.setEnabled(DelegateModel.itemsIndex, checked)
                     }
                 }
 
@@ -67,7 +68,10 @@ Component {
                         var over = draggable
                         if (over != entering) {
                             entering.lastY = over.y
-                            mirrorsDelg.items.move(entering.DelegateModel.itemsIndex, over.DelegateModel.itemsIndex)
+                            var ei = entering.DelegateModel.itemsIndex
+                            var oi = over.DelegateModel.itemsIndex
+                            mirrors.move(ei, oi)
+                            mirrorsDelg.items.move(ei, oi)
                         }
                     }
                 }
@@ -96,13 +100,25 @@ Component {
                     }
                 }
 
-                Row {
+                /*[TODO] Row {
                     anchors.horizontalCenter: parent.horizontalCenter
 
                     Button {
                         text: qsTr('Benchmark and sort')
                     }
-                }
+
+                    Button {
+                        text: qsTr('Enable all')
+                    }
+
+                    Button {
+                        text: qsTr('Disable all')
+                    }
+
+                    Button {
+                        text: qsTr('Sort by TLD')
+                    }
+                }*/
            }
         }
 
@@ -142,10 +158,17 @@ Component {
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: 80
 
-            Column {
-                Button {
-                    text: qsTr('Cancel')
-                    onClicked: contentStack.pop()
+            
+            Button {
+                text: qsTr('Cancel')
+                onClicked: contentStack.pop()
+            }
+            
+            Button {
+                text: qsTr('Apply && Next')
+                onClicked: {
+                   mirrors.apply()
+                   contentStack.push(nextMenu) 
                 }
             }
         }

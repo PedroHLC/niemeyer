@@ -141,6 +141,8 @@ void Network::applyProfile(QString profileData) {
 	QProcess::execute(QStringLiteral("netctl stop-all"));
 
 	QFile proFile("/etc/netctl/chaotic-setup");
+	if (!proFile.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
 	proFile.write(profileData.toUtf8());
 	proFile.close();
 
