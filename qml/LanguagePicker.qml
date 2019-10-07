@@ -29,7 +29,6 @@ Component {
             anchors.bottomMargin: 20
             width: parent.width
             
-            //Flickable {
             ScrollView {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
