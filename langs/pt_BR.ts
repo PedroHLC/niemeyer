@@ -2,6 +2,25 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pt_BR" sourcelanguage="en_US">
 <context>
+    <name>EthernetMenu</name>
+    <message>
+        <source>Select adapter: </source>
+        <translation>Selecione a interface:</translation>
+    </message>
+    <message>
+        <source>Generate profile</source>
+        <translation>Gerar script</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+</context>
+<context>
     <name>KeyboardPicker</name>
     <message>
         <source>Select your key-map:
@@ -117,6 +136,97 @@ Caso não tenha certeza, deixe o padrão</translation>
     <message>
         <source>Next</source>
         <translation>Próximo</translation>
+    </message>
+</context>
+<context>
+    <name>MirrorsSort</name>
+    <message>
+        <source>Sort pacman mirrors:</source>
+        <translation>Orderne os mirrors do pacman:</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Apply &amp;&amp; Next</source>
+        <translation>Aplicar &amp;&amp; Prosseguir</translation>
+    </message>
+</context>
+<context>
+    <name>NetworkUp</name>
+    <message>
+        <source>Set your network!</source>
+        <translation>Configure sua conexão!</translation>
+    </message>
+    <message>
+        <source>ONLINE</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>OFFLINE</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Select Wireless AP</source>
+        <translation>Selecionar AP sem fio</translation>
+    </message>
+    <message>
+        <source>Configure Ethernet</source>
+        <translation>Configurar conexão cabeada</translation>
+    </message>
+    <message>
+        <source>* In both options you&apos;ll find a form that will be used for generating a netctl profile,
+this profile can be manually edited before starting it.</source>
+        <translation>* Em ambas as opções você encontrará um formulário que é usado para gerar
+um script para o netctl, esse script poderá ser editado antes de conectar.</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Próximo</translation>
+    </message>
+    <message>
+        <source>Network required</source>
+        <translation>É necessário estar conectado</translation>
+    </message>
+</context>
+<context>
+    <name>WifiMenu</name>
+    <message>
+        <source>Select adapter: </source>
+        <translation>Selecione uma interface:</translation>
+    </message>
+    <message>
+        <source>Select SSID: </source>
+        <translation>Selecione um SSID:</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Atualizar</translation>
+    </message>
+    <message>
+        <source>Password: </source>
+        <translation>Senha:</translation>
+    </message>
+    <message>
+        <source>WPA2 personal password only</source>
+        <translation>senha de WPA2 pessoal apenas</translation>
+    </message>
+    <message>
+        <source>Generate profile</source>
+        <translation>Gerar script</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
     </message>
 </context>
 </TS>
