@@ -91,7 +91,6 @@ Component {
                 Button {
                     text: qsTr('Next')
                     highlighted: true
-                    Material.background: Material.Indigo
                     onClicked: contentStack.push(keyboardPicker)
                 }
             }

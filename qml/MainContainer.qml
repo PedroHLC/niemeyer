@@ -35,7 +35,8 @@ Rectangle {
         color: Material.background
         
         Material.theme: Material.Light
-        Material.accent: Material.Indigo
+        Material.primary: Material.Grey
+        Material.accent: Material.BlueGrey
 
         ToolBar {
             id: containerToolBar
@@ -76,4 +77,8 @@ Rectangle {
 
     LanguagePicker { id: languagePicker }
     KeyboardPicker { id: keyboardPicker }
+    NetworkUp { id: networkUp }
+    WifiMenu { id: wifiMenu }
+    EthernetMenu { id: ethMenu }
+    MirrorsSort { id: mirrorsSort }
 }
