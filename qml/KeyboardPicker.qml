@@ -52,9 +52,9 @@ Component {
                     id: pickKeyboardList
 
                     Repeater {
-                        model: allKeyboards
+                        model: keymap.allKeyboards
 
-                        RadioButton {text: modelData; onClicked: setupLocale.selectedKeyboard = modelData }
+                        RadioButton {text: modelData; onClicked: keymap.selectedKeyboard = modelData }
                     }
                 }
             }

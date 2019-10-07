@@ -51,7 +51,7 @@ Component {
                 Column {
                     id: pickLangList
 
-                    RadioButton {text: qsTr('English'); checked: true; onClicked: lang.setLang("en_US") } 
+                    RadioButton {text: qsTr('English'); checked: true; onClicked: translations.setLang("en_US") } 
                     /*RadioButton {text: qsTr('Bulgarian')}
                     RadioButton {text: qsTr('Dutch')}
                     RadioButton {text: qsTr('French')}
@@ -64,7 +64,7 @@ Component {
                     RadioButton {text: qsTr('Lithuanian')}
                     RadioButton {text: qsTr('Polish')}
                     RadioButton {text: qsTr('Portuguese')}*/
-                    RadioButton {text: qsTr('Portuguese (Brazilian)'); onClicked: lang.setLang("pt_BR") }
+                    RadioButton {text: qsTr('Portuguese (Brazilian)'); onClicked: translations.setLang("pt_BR") }
                     /*RadioButton {text: qsTr('Romanian')}
                     RadioButton {text: qsTr('Russian')}
                     RadioButton {text: qsTr('Spanish')}
