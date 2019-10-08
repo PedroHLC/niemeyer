@@ -66,14 +66,20 @@ void Locales::setEnabled(int i, bool en) {
 	emit langsChanged();
 }
 
-void Locales::apply() {
-	QFile file("/mnt/etc/locale.gen");
-	if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-        return;
-    QTextStream out(&file);
+QString Locales::genLocaleGenFile() {
+	QString locale_file;
+	QTextStream locale_out(&locale_file, QIODevice::WriteOnly | QIODevice::Text);
 	for (const auto item : getLocales())	
-		out << (item->isEnabled() ? "" : "#") << item->getCode() << "\n";
-	file.close();
+		locale_out << (item->isEnabled() ? "" : "#") << item->getCode() << "\n";
+	return locale_file;
+}
+
+QString Locales::genLocaleConfFile() {
+	QString conf_file;
+	QTextStream conf(&conf_file, QIODevice::WriteOnly | QIODevice::Text);
+	conf << "LANG=" << getLANG() << "\n";
+	return conf_file;
+	
 }
 
 QStringList Locales::getAvailableLANGs() {

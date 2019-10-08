@@ -40,7 +40,8 @@ public:
 	QString getLANG();
 	Q_INVOKABLE void setEnabled(int, bool);
 	Q_INVOKABLE void setLANG(int);
-	Q_INVOKABLE void apply();
+	Q_INVOKABLE QString genLocaleConfFile();
+	Q_INVOKABLE QString genLocaleGenFile();
 signals:
 	void langsChanged();
 };
