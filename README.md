@@ -3,10 +3,10 @@ A setup wizard for ArchLinux using Qt and compatible with EGLFS.
 
 # Features
  * Compatible with EGLFS:
- 	* Does not require X11 or Wayland to run.
+     * Does not require X11 or Wayland to run.
  * Lazy scriptable setup:
- 	* At the end of the script you'll be presented to an editable bash script containing all the instructions that will be used during setup.
- 	* The same happens for networks connections and partitioning.
+     * At one point you'll be presented to an editable bash script containing all the instructions that will be used during setup.
+     * The same happens for network connections and partitioning.
  * No package will be installed without your consent.
 
 # Building
@@ -36,5 +36,5 @@ export QT_QPA_PLATFORM='eglfs'
 ![Language Picking Screen](screenshot.png)
 
 # Is it related to Chaotic-AUR repository?
-Both projects are mantained by the same Pedro, and you'll find a ready to burn ISO with Chaotic Installer available in Chaotic-AUR (soon).
-But, this installer doesn't include Chaotic-AUR, any of it's packages, and won't offer to add it.
+Both projects are maintained by the same Pedro, and you'll find a ready to burn ISO with Chaotic Installer available in Chaotic-AUR (soon).
+But, this installer doesn't include Chaotic-AUR, any of its packages, and won't offer to add it.
