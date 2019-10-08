@@ -75,11 +75,11 @@ If unsure leave default</source>
         <translation></translation>
     </message>
     <message>
-        <source>Cancel</source>
+        <source>Next</source>
         <translation></translation>
     </message>
     <message>
-        <source>Next</source>
+        <source>Back</source>
         <translation></translation>
     </message>
 </context>
@@ -90,11 +90,11 @@ If unsure leave default</source>
         <translation></translation>
     </message>
     <message>
-        <source>Cancel</source>
+        <source>Apply &amp;&amp; Next</source>
         <translation></translation>
     </message>
     <message>
-        <source>Apply &amp;&amp; Next</source>
+        <source>Back</source>
         <translation></translation>
     </message>
 </context>

@@ -161,7 +161,7 @@ Component {
 
             
             Button {
-                text: qsTr('Cancel')
+                text: qsTr('Back')
                 onClicked: contentStack.pop()
             }
             

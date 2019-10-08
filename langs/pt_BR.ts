@@ -150,11 +150,15 @@ Caso não tenha certeza, deixe o padrão</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <source>Next</source>
         <translation>Próximo</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Voltar</translation>
     </message>
 </context>
 <context>
@@ -165,11 +169,15 @@ Caso não tenha certeza, deixe o padrão</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <source>Apply &amp;&amp; Next</source>
         <translation>Aplicar &amp;&amp; Prosseguir</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Voltar</translation>
     </message>
 </context>
 <context>
