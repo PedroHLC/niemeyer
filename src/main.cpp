@@ -30,10 +30,11 @@
 #include <QTranslator>
 
 #include "chaotic-installer.hpp"
-#include "lib/language.hpp"
-#include "lib/locale.hpp"
+#include "lib/translations.hpp"
+#include "lib/keymap.hpp"
 #include "lib/network.hpp"
 #include "lib/mirrors.hpp"
+#include "lib/locales.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -53,20 +54,19 @@ int main(int argc, char *argv[])
     app.installTranslator(translator);
     
     // Components
-    //Component * m_compo = new Component(&view);
-    Lang * m_lang = new Lang(&app, view.engine(), &view);
-    Locale * m_locale = new Locale(&view);
+    Translations * m_translations = new Translations(&app, view.engine(), &view);
+    Keymap * m_keymap = new Keymap(&view);
     Network * m_net = new Network(&view);
     Mirrors * m_mirrors = new Mirrors(&view);
+    Locales * m_locales = new Locales(&view);
 
     // Context props
-    //context->setContextProperty(QStringLiteral("compo"), m_compo);
-    context->setContextProperty(QStringLiteral("lang"), m_lang);
-    context->setContextProperty(QStringLiteral("setupLocale"), m_locale);
+    context->setContextProperty(QStringLiteral("translations"), m_translations);
+    context->setContextProperty(QStringLiteral("keymap"), m_keymap);
     context->setContextProperty(QStringLiteral("net"), m_net);
     context->setContextProperty(QStringLiteral("mirrors"), m_mirrors);
+    context->setContextProperty(QStringLiteral("locales"), m_locales);
     context->setContextProperty(QStringLiteral("assetsPath"), appPath.resolved(QStringLiteral(ASSETS_PATH)));
-    context->setContextProperty(QStringLiteral("allKeyboards"), QVariant::fromValue(m_locale->allKeyboards()));
     
     // Some connections
     QObject::connect(view.engine(), &QQmlApplicationEngine::quit, &QGuiApplication::quit);

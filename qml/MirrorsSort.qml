@@ -155,6 +155,7 @@ Component {
             id: mirrorsFooter
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 20
+            anchors.topMargin: 20
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: 80
 
@@ -166,9 +167,11 @@ Component {
             
             Button {
                 text: qsTr('Apply && Next')
+                highlighted: true
+                //[TODO] Require at least one active mirror!
                 onClicked: {
                    mirrors.apply()
-                   contentStack.push(nextMenu) 
+                   contentStack.push(localesSelect) 
                 }
             }
         }

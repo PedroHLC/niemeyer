@@ -5,7 +5,7 @@
     <name>EthernetMenu</name>
     <message>
         <source>Select adapter: </source>
-        <translation>Selecione a interface:</translation>
+        <translation>Selecione a interface: </translation>
     </message>
     <message>
         <source>Generate profile</source>
@@ -139,6 +139,25 @@ Caso não tenha certeza, deixe o padrão</translation>
     </message>
 </context>
 <context>
+    <name>LocalesSelect</name>
+    <message>
+        <source>Select enabled locales:</source>
+        <translation>Selecione as internacionalizações:</translation>
+    </message>
+    <message>
+        <source>Select system language: </source>
+        <translation>Selecione o idioma do sistema: </translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Próximo</translation>
+    </message>
+</context>
+<context>
     <name>MirrorsSort</name>
     <message>
         <source>Sort pacman mirrors:</source>
@@ -198,11 +217,11 @@ um script para o netctl, esse script poderá ser editado antes de conectar.</tra
     <name>WifiMenu</name>
     <message>
         <source>Select adapter: </source>
-        <translation>Selecione uma interface:</translation>
+        <translation>Selecione uma interface: </translation>
     </message>
     <message>
         <source>Select SSID: </source>
-        <translation>Selecione um SSID:</translation>
+        <translation>Selecione um SSID: </translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -210,7 +229,7 @@ um script para o netctl, esse script poderá ser editado antes de conectar.</tra
     </message>
     <message>
         <source>Password: </source>
-        <translation>Senha:</translation>
+        <translation>Senha: </translation>
     </message>
     <message>
         <source>WPA2 personal password only</source>

@@ -9,11 +9,13 @@ VPATH *= $${BASEDIR}/src
 TRANSLATIONS = langs/en_US.ts langs/pt_BR.ts
 
 HEADERS = chaotic-installer.hpp \
-	lib/language.hpp lib/locale.hpp \
-	lib/network.hpp lib/mirrors.hpp
+	lib/translations.hpp lib/keymap.hpp \
+	lib/network.hpp lib/mirrors.hpp \
+	lib/locales.hpp
 SOURCES = main.cpp \
-	lib/language.cpp  lib/locale.cpp \
-	lib/network.cpp lib/mirrors.cpp
+	lib/translations.cpp  lib/keymap.cpp \
+	lib/network.cpp lib/mirrors.cpp \
+	lib/locales.cpp
 TARGET = bin/chaotic-installer
 
 lupdate_only {

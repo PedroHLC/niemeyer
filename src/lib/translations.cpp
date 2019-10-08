@@ -1,14 +1,14 @@
-#include "language.hpp"
 #include <QDebug>
 #include <QDir>
 
-Lang::Lang(QGuiApplication* app, QQmlEngine * engine, QObject *parent) :
+#include "translations.hpp"
+
+Translations::Translations(QGuiApplication* app, QQmlEngine * engine, QObject *parent) :
 	QObject (parent), app(app),  engine(engine) {
 	translator = new QTranslator(this);
-	//setLang(LOCALE_DEFAULT);
 }
 
-void Lang::setLang(QString locale) {
+void Translations::setLang(QString locale) {
 	QString path =
 		QStringLiteral("langs/%1.qm")
 		.arg(locale);
@@ -27,7 +27,7 @@ void Lang::setLang(QString locale) {
     emit languageChanged();
 }
 
-QString Lang::getSelectedLang()
+QString Translations::getLang()
 {
     return selectedLang;
 }

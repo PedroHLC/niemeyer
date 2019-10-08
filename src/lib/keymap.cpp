@@ -2,28 +2,18 @@
 #include <QDebug>
 #include <QtPlatformHeaders/QEglFSFunctions>
 
-#include "locale.hpp"
+#include "keymap.hpp"
 
-Locale::Locale(QObject *parent) :
+QDir Keymap::keymapDir = QDir(QStringLiteral("/usr/share/kbd/keymaps/i386/qwerty"));
+
+Keymap::Keymap(QObject *parent) :
 	QObject (parent) {}
 
-void Locale::toggleLocale(QString locale) {
-	//TODO
-}
-
-QString Locale::getSelectedKeyboard() {
+QString Keymap::getSelectedKeyboard() {
     return selectedKeyboard;
 }
 
-QStringList Locale::getSelectedLocales() {
-    return selectedLocales;
-}
-
-QString Locale::getSelectedZone() {
-    return selectedZone;
-}
-
-void Locale::setKeyboard(const QString &keymap) {
+void Keymap::setKeyboard(const QString &keymap) {
 	qDebug() << "Setting keymap " << keymap;
 
 	selectedKeyboard = keymap;
@@ -36,18 +26,13 @@ void Locale::setKeyboard(const QString &keymap) {
 	emit keyboardChanged();
 }
 
-void Locale::setZone(const QString &zone) {
-	//TODO
-}
-
-QStringList Locale::keyboardsCache = QStringList();
-QDir Locale::keymapDir = QDir(QStringLiteral("/usr/share/kbd/keymaps/i386/qwerty"));
-
-QStringList Locale::allKeyboards() const {
+QStringList Keymap::allKeyboards() {
 	if(keyboardsCache.size() < 1) {
 		keyboardsCache = keymapDir
 			.entryList(QStringList() << "*.map.gz")
 			.replaceInStrings(".map.gz", "");
+		emit allKeyboardsChanged();
 	}
+
 	return keyboardsCache;	
 }

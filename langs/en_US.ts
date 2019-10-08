@@ -65,6 +65,25 @@ If unsure leave default</source>
     </message>
 </context>
 <context>
+    <name>LocalesSelect</name>
+    <message>
+        <source>Select enabled locales:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Select system language: </source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>MirrorsSort</name>
     <message>
         <source>Sort pacman mirrors:</source>

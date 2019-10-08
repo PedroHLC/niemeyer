@@ -1,5 +1,5 @@
-#ifndef LANGUAGE_H
-#define LANGUAGE_H
+#ifndef TRANSLATIONS_H
+#define TRANSLATIONS_H
 
 #include <QObject>
 #include <QLocale>
@@ -7,11 +7,9 @@
 #include <QGuiApplication>
 #include <QQmlEngine>
 
-#define LOCALE_DEFAULT "en_US"
-
-class Lang : public QObject {
+class Translations : public QObject {
 	Q_OBJECT
-	Q_PROPERTY(QString selectedLang READ getSelectedLang NOTIFY languageChanged)
+	Q_PROPERTY(QString selectedLang READ getLang WRITE setLang NOTIFY languageChanged)
 
 private:
 	QGuiApplication *app;
@@ -20,14 +18,14 @@ private:
 	QString selectedLang;
 
 public:
-	explicit Lang(QGuiApplication *app, QQmlEngine *engine,
+	explicit Translations(QGuiApplication *app, QQmlEngine *engine,
 		QObject *parent = nullptr);
 
-	QString getSelectedLang();
+	QString getLang();
 	Q_INVOKABLE void setLang(const QString locale);
 
 signals:
 	void languageChanged();
 };
 
-#endif // LANGUAGE_H
+#endif // TRANSLATIONS_H
