@@ -82,4 +82,5 @@ Rectangle {
     EthernetMenu { id: ethMenu }
     MirrorsSort { id: mirrorsSort }
     LocalesSelect { id: localesSelect }
+    UserSetup { id: userSetup }
 }
