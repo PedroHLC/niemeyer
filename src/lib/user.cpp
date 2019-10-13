@@ -97,15 +97,18 @@ void User::validateFields() {
     setError("");
     setIsValid(true);
 
-    validatePasswords("User passwords don't match", userPassword, userPasswordConfirm);
-    validatePasswords("Root passwords don't match", rootPassword, rootPasswordConfirm);
+    validatePasswords(tr("User passwords don't match"), userPassword, userPasswordConfirm);
+    validatePasswords(tr("Root passwords don't match"), rootPassword, rootPasswordConfirm);
 
-    validateField("User name should not be empty", userName);
-    validateField("User password should not be empty", userPassword);
-    validateField("User password should not be empty", userPasswordConfirm);
+    validateField(tr("User name should not be empty"), userName);
 
-    validateField("Root password should not be empty", rootPassword);
-    validateField("Root password should not be empty", rootPasswordConfirm);
+    QString emptyUserPasswordError = tr("User password should not be empty");
+    validateField(emptyUserPasswordError, userPassword);
+    validateField(emptyUserPasswordError, userPasswordConfirm);
 
-    validateField("Host name should not be empty", hostName);
+    QString emptyRootPasswordError = tr("Root password should not be empty");
+    validateField(emptyRootPasswordError, rootPassword);
+    validateField(emptyRootPasswordError, rootPasswordConfirm);
+
+    validateField(tr("Host name should not be empty"), hostName);
 }
