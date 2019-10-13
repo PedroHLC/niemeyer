@@ -222,6 +222,41 @@ um script para o netctl, esse script poderá ser editado antes de conectar.</tra
     </message>
 </context>
 <context>
+    <name>UserSetup</name>
+    <message>
+        <source>User settings</source>
+        <translation>Configurações de usuário</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nome</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Senha</translation>
+    </message>
+    <message>
+        <source>Confirm Password</source>
+        <translation>Confirmar senha</translation>
+    </message>
+    <message>
+        <source>Root settings</source>
+        <translation>Configurações de root</translation>
+    </message>
+    <message>
+        <source>Hostname:</source>
+        <translation>Nome do host</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+</context>
+<context>
     <name>WifiMenu</name>
     <message>
         <source>Select adapter: </source>

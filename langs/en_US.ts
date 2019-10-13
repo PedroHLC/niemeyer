@@ -139,6 +139,41 @@ this profile can be manually edited before starting it.</source>
     </message>
 </context>
 <context>
+    <name>UserSetup</name>
+    <message>
+        <source>User settings</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Confirm Password</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Root settings</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Hostname:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>WifiMenu</name>
     <message>
         <source>Select adapter: </source>

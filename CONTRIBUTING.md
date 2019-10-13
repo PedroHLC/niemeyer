@@ -6,6 +6,7 @@ Here are instructions on how to contribute:
 * Try to keep it KISS: If it can be done simply, keep it simple. Also, do not add unnecessary dependencies.
 * The project doesn't have coding style guidelines nor a linter, but keep the code readable and do not add unnecessary files to your commits.
 * Please use reviewable.io to respond to PR's reviews.
+* When using translation strings on code, please run `lupdate -verbose -pro chaotic-installer.pro` to generate the translations source on `lang` folder.
 
 Others suggestions:
 * To understand the code, start with `src/main.cpp` and `qml/MainContainer.qml`.
