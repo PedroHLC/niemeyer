@@ -35,6 +35,7 @@
 #include "lib/network.hpp"
 #include "lib/mirrors.hpp"
 #include "lib/locales.hpp"
+#include "lib/user.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -59,6 +60,7 @@ int main(int argc, char *argv[])
     Network * m_net = new Network(&view);
     Mirrors * m_mirrors = new Mirrors(&view);
     Locales * m_locales = new Locales(&view);
+    User * m_user = new User(&view);
 
     // Context props
     context->setContextProperty(QStringLiteral("translations"), m_translations);
@@ -66,6 +68,7 @@ int main(int argc, char *argv[])
     context->setContextProperty(QStringLiteral("net"), m_net);
     context->setContextProperty(QStringLiteral("mirrors"), m_mirrors);
     context->setContextProperty(QStringLiteral("locales"), m_locales);
+    context->setContextProperty(QStringLiteral("user"), m_user);
     context->setContextProperty(QStringLiteral("assetsPath"), appPath.resolved(QStringLiteral(ASSETS_PATH)));
     
     // Some connections
