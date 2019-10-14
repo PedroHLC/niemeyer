@@ -196,16 +196,17 @@ Component {
 
             Column {
                 Button {
-                    text: qsTr("Cancel")
+                    text: qsTr("Back")
+                    onClicked: contentStack.pop()
                 }
             }
 
             Column {
                 Button {
-                    text: qsTr("Apply")
+                    text: qsTr("Next")
                     enabled: user.isValid
                     highlighted: user.isValid
-                    onClicked: contentStack.push(nextStep)
+                    onClicked: contentStack.push(zonePicker)
                 }
             }
         }

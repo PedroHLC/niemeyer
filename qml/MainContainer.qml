@@ -82,5 +82,11 @@ Rectangle {
     EthernetMenu { id: ethMenu }
     MirrorsSort { id: mirrorsSort }
     LocalesSelect { id: localesSelect }
+    DisksWizard { id: disksWizard }
+    MountPoints { id: fsTab }
     UserSetup { id: userSetup }
+    ZonePicker { id: zonePicker }
+    PkgSelect { id: pkgSelect }
+    ScriptsReviewRun { id: scriptsReviewRun }
+    Finalize { id: finalize }
 }
