@@ -1,3 +1,10 @@
+/*  Chaotic Installer Network
+	(Wifi Scan and Netctl's profile generator)
+    
+    Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>
+    Distributed under the GPL v2. For full terms see the file LICENSE.
+*/
+
 #include <QDebug>
 #include <QProcess>
 #include <QTextCodec>

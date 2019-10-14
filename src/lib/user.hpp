@@ -1,3 +1,10 @@
+/*  Chaotic Installer Users Headers
+    
+    Copyright (C) 2019 Vagner S. <vagnervst17@gmail.com>
+
+    Distributed under the GPL v2. For full terms see the file LICENSE.
+*/
+
 #ifndef USER_HPP
 #define USER_HPP
 

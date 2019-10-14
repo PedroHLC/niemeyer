@@ -1,3 +1,10 @@
+/*  Chaotic Installer Translations
+	(Load and set Qt translator and locale)
+    
+    Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>
+    Distributed under the GPL v2. For full terms see the file LICENSE.
+*/
+
 #include <QDebug>
 #include <QDir>
 

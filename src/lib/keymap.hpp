@@ -1,3 +1,9 @@
+/*  Chaotic Installer Keymaps Headers
+    
+    Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>
+    Distributed under the GPL v2. For full terms see the file LICENSE.
+*/
+
 #ifndef KEYMAP_H
 #define KEYMAP_H
 

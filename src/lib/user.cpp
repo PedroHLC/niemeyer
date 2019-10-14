@@ -1,3 +1,11 @@
+/*  Chaotic Installer Users
+    (Set root and first user password, validate for the same input)
+    
+    Copyright (C) 2019 Vagner S. <vagnervst17@gmail.com>
+
+    Distributed under the GPL v2. For full terms see the file LICENSE.
+*/
+
 #include <QDebug>
 
 #include "user.hpp"
