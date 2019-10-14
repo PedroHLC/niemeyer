@@ -12,14 +12,14 @@ A setup wizard for ArchLinux using Qt and compatible with EGLFS.
 # Building
 ## Dependencies
 ```
-yay -S qt5-base qt5-quickcontrols2 libinput libxkbcommon
+pacman -S qt5-base qt5-quickcontrols2 libinput libxkbcommon
 ```
 
 ## How to build?
 ```
-yay -S qt5-tools
+pacman -S qt5-tools
 cd chaotic-installer-qt
-qmake -project chaotic-installer.pro
+qmake -makefile -project chaotic-installer.pro
 make
 lrelease chaotic-installer.pro
 ```
