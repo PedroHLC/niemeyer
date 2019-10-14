@@ -1,7 +1,6 @@
-Makefile
-.qmake.stash
-*.o
+/Makefile
 bin/
-moc_*
+build/
+.qmake.stash
 *.json
 *.qm

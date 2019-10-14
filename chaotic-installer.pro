@@ -3,6 +3,10 @@ QT += quick
 QT += quickcontrols2
 CONFIG += c++17
 
+DESTDIR=bin
+OBJECTS_DIR=build
+MOC_DIR=build
+
 BASEDIR = $${PWD}
 VPATH *= $${BASEDIR}/src
 
