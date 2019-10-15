@@ -41,6 +41,9 @@ public:
 	Q_INVOKABLE void taskTables(int, int, QString);
 	Q_INVOKABLE void taskResize(int, QString);
 	Q_INVOKABLE void taskMove(int, QString);
+	Q_INVOKABLE void taskCreate(int, QString, QString, QString, QString);
+	Q_INVOKABLE void taskFlag(int, QString, bool);
+	Q_INVOKABLE void taskFormat(int, int);
 	Q_INVOKABLE void cleanTasks();
 
 signals:

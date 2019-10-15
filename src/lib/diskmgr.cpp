@@ -118,6 +118,19 @@ void DiskMgr::cleanTasks() {
 	emit tasksChanged();
 }
 
+void DiskMgr::taskCreate(int devIndex, QString type, QString fs, QString begin, QString end) {
+
+}
+
+void DiskMgr::taskFlag(int minor, QString type, bool state) {
+
+}
+
+void DiskMgr::taskFormat(int partIndex, int fsIndex) {
+
+}
+
+
 int DiskMgr::getPartNum(QString deviceAndPart, QString *deviceOnly) {
 	QRegularExpression re("^([^0-9]+)([0-9]+)$");
 	QRegularExpressionMatch match = re.match(deviceAndPart);

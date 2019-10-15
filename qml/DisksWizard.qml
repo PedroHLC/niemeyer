@@ -237,12 +237,123 @@ Component {
                             }
                         }
                     }
+                    Item { // Create
+                        RowLayout {
+                            anchors.fill: parent
+                            ComboBox {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: createDev
+                                model: disks.devices
+                                Layout.preferredWidth: 80
+                            }
+                            ComboBox {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: createType
+                                model: ["primary", "extended", "logical"]
+                                Layout.preferredWidth: 110
+                            }
+                            ComboBox {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: createFS
+                                model: ["", "ext2", "fat32", "fat16", "HFS", "linux-swap", "NTFS", "reiserfs", "ufs"]
+                                Layout.preferredWidth: 120
+                            }
+                            TextField {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: createBegin
+                                placeholderText: "1000MB"
+                                Layout.fillWidth: true
+                                Layout.preferredWidth: 70
+                            }
+                            TextField {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: createEnd
+                                placeholderText: "9000MB"
+                                Layout.fillWidth: true
+                                Layout.preferredWidth: 70
+                            }
+                            Button {
+                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                                text: qsTr("Add Task")
+                                onClicked: disks.taskCreate(createDev.currentIndex, createType.text, createFS.text, createBegin.text, createEnd.text)
+                            }
+                        }
+                    }
+                    Item { // Flag
+                        RowLayout {
+                            anchors.fill: parent
+                            Text {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                text: qsTr("Select partition: ")
+                            }
+                            ComboBox {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: flagMinor
+                                model: disks.partitions
+                                Layout.preferredWidth: 80
+                            }
+                            Text {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                text: qsTr(" and flag: ")
+                            }
+                            ComboBox {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: flagFlag
+                                model: ["boot", "lba", "root", "swap", "hidden", "raid", "LVM"]
+                                Layout.preferredWidth: 120
+                            }
+                            ComboBox {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: flagState
+                                model: ["off", "on"]
+                                Layout.preferredWidth: 80
+                            }
+                            Button {
+                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                                text: qsTr("Add Task")
+                                onClicked: disks.taskFlag(flagMinor.currentIndex, flagFlag.text, flagState.currentIndex == 1)
+                            }
+                        }
+                    }
+                    Item { // Format
+                        RowLayout {
+                            anchors.fill: parent
+                            Text {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                text: qsTr("Select partition: ")
+                            }
+                            ComboBox {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: formatPartition
+                                model: disks.partitions
+                                Layout.preferredWidth: 80
+                            }
+                            Text {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                text: qsTr(" and new type: ")
+                            }
+                            ComboBox {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: formatTarget
+                                model: ["BtrFS", "ExFAT", "EXT4", "FAT32", "NTFS", "F2FS"]
+                                Layout.preferredWidth: 120
+                            }
+                            Column {
+                                Layout.fillWidth: true
+                            }
+                            Button {
+                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                                text: qsTr("Add Task")
+                                onClicked: disks.taskFormat(formatPartition.currentIndex, formatTarget.currentIndex)
+                            }
+                        }
+                    }
                 }
             }
         }
 
         Text {
-            text: qsTr("Tasks to apply:")
+            text: qsTr("Tasks to apply: (Leave empty to delete)")
             Layout.leftMargin: 20
             Layout.rightMargin: 20
         }
@@ -300,6 +411,7 @@ Component {
                 }
                 Button {
                     text: qsTr("Apply")
+                    highlighted: true
                 }
             }
 
