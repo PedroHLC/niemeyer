@@ -9,6 +9,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
+import QtQuick.Layouts 1.13
 
 Rectangle {
     id: container
@@ -44,23 +45,25 @@ Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
             
-            Row {
+            RowLayout {
                 anchors.fill: parent
                 ToolButton {
+                    Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                     id: containerBack
                     text: "‹"
                     onClicked: contentStack.pop()
-                    anchors.left: parent.left
                 }
                 Label {
+                    Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                     text: "Chaotic Installer"
-                    anchors.left: containerBack.right
-                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Column {
+                    Layout.fillWidth: true
                 }
                 ToolButton {
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     text: "⋮"
                     onClicked: menu.open()
-                    anchors.right: parent.right
                 }
             }
         }

@@ -13,6 +13,12 @@ import QtQuick.Layouts 1.3
 
 Component {
 	ColumnLayout {
+        RowLayout {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Text {
+                text: qsTr("Select system's clock timezone:")
+            }
+        }
 		// TODO
         RowLayout {
             spacing: 80
