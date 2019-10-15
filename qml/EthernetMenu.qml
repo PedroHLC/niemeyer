@@ -9,6 +9,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
+import QtQuick.Layouts 1.13
 
 Component {
     Column {
@@ -28,33 +29,40 @@ Component {
             Column {
                 spacing: 20
 
-                Row {
+                RowLayout {
+                    width: parent.width
                     spacing: 20
                     
-                    Column {
-                        anchors.verticalCenter: parent.verticalCenter
-                        Text { text: qsTr('Select adapter: ') }
+                    Text {
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter 
+                        text: qsTr('Select adapter: ')
                     }
-                    Column {
-                        ComboBox {
-                            id: ethIfacePicker
-                            model: net.cards
-                            onActivated: net.setEthIface(currentIndex)
-                        }
+                    
+                    ComboBox {
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                        id: ethIfacePicker
+                        model: net.cards
+                        onActivated: net.setEthIface(currentIndex)
                     }
-                }
 
-                Row {
+                    Column {
+                        Layout.fillWidth: true
+                    }
+
                     Button {
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                         text: qsTr('Generate profile')
+                        highlighted: true
                         onClicked: net.genEthProfile();
                     }
                 }
 
-                Row {
+                Rectangle {
                     id: ethProfileTextView
                     width: 480
-                    height: 240
+                    height: 220
+                    border.width: 1
+                    border.color: "lightgray"
                     ScrollView {
                         anchors.top: parent.top
                         width: parent.width
