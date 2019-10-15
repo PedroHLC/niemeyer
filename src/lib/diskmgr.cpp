@@ -8,6 +8,7 @@
 #include <QProcess>
 #include <QTextCodec>
 #include <QDebug>
+#include <QRegularExpression>
 
 #include "diskmgr.hpp"
 
@@ -56,6 +57,12 @@ void DiskMgr::setTask(int index, QString newText) {
 	emit tasksChanged();
 }
 
+void DiskMgr::taskDelete(int partIndex) {
+	QString device;
+	tasks << QString("parted /dev/%2 rm %1").arg(getPartNum(partitions.at(partIndex), &device)).arg(device);
+	emit tasksChanged();
+}
+
 void DiskMgr::taskTables(int action, int devIndex, QString mode) {
 	if(action == 0)
 		tasks << QString("parted /dev/%1 mktable %2").arg(devices.at(devIndex)).arg(mode);
@@ -69,4 +76,11 @@ void DiskMgr::taskTables(int action, int devIndex, QString mode) {
 void DiskMgr::cleanTasks() {
 	tasks.clear();
 	emit tasksChanged();
+}
+
+int DiskMgr::getPartNum(QString deviceAndPart, QString *deviceOnly) {
+	QRegularExpression re("^([^0-9]+)([0-9]+)$");
+	QRegularExpressionMatch match = re.match(deviceAndPart);
+	*deviceOnly = match.captured(1);
+	return match.captured(2).toInt();	
 }

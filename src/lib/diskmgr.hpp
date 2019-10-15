@@ -23,6 +23,8 @@ private:
 	QStringList partitions;
 	QString finalScript;
 
+	int getPartNum(QString, QString*);
+
 public:
 	explicit DiskMgr(QObject *parent = nullptr);
 	
@@ -32,6 +34,7 @@ public:
 	QStringList getPartitions();
 
 	Q_INVOKABLE void setTask(int, QString);
+	Q_INVOKABLE void taskDelete(int);
 	Q_INVOKABLE void taskTables(int, int, QString);
 	Q_INVOKABLE void cleanTasks();
 
