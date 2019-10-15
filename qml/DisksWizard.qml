@@ -86,13 +86,10 @@ Component {
                         text: qsTr("Tables")
                     }
                     TabButton {
-                        text: qsTr("Shrink")
+                        text: qsTr("Resize")
                     }
                     TabButton {
                         text: qsTr("Move")
-                    }
-                    TabButton {
-                        text: qsTr("Grow")
                     }
                     TabButton {
                         text: qsTr("Create")
@@ -117,12 +114,13 @@ Component {
                             anchors.fill: parent
                             Text {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                                text: "select partition: "
+                                text: qsTr("Select partition: ")
                             }
                             ComboBox {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                 id: removePartition
                                 model: disks.partitions
+                                Layout.preferredWidth: 80
                             }
                             Column {
                                 Layout.fillWidth: true
@@ -170,6 +168,72 @@ Component {
                                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                                 text: qsTr("Add Task")
                                 onClicked: disks.taskTables(tablesAction.currentIndex, tablesDevice.currentIndex, tablesType.currentText)
+                            }
+                        }
+                    }
+                    Item { // Resize
+                        RowLayout {
+                            anchors.fill: parent
+                            Text {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                text: qsTr("Select partition: ")
+                            }
+                            ComboBox {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: resizeEXTPartition
+                                model: disks.extPartitions
+                                Layout.preferredWidth: 80
+                            }
+                            Text {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                text: qsTr("and new end: ")
+                            }
+                            TextField {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: resizeEXTNewEnd
+                                placeholderText: "0MB"
+                                Layout.preferredWidth: 120
+                            }
+                            Column {
+                                Layout.fillWidth: true
+                            }
+                            Button {
+                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                                text: qsTr("Add Task")
+                                onClicked: disks.taskResize(resizeEXTPartition.currentIndex, resizeEXTNewEnd.text)
+                            }
+                        }
+                    }
+                    Item { // Move
+                        RowLayout {
+                            anchors.fill: parent
+                            Text {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                text: qsTr("Select partition: ")
+                            }
+                            ComboBox {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: movePartition
+                                model: disks.partitions
+                                Layout.preferredWidth: 80
+                            }
+                            Text {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                text: qsTr("and relocation: ")
+                            }
+                            TextField {
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                id: moveNewEnd
+                                placeholderText: "-/+7214MB"
+                                Layout.preferredWidth: 120
+                            }
+                            Column {
+                                Layout.fillWidth: true
+                            }
+                            Button {
+                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                                text: qsTr("Add Task")
+                                onClicked: disks.taskMove(movePartition.currentIndex, moveNewEnd.text)
                             }
                         }
                     }

@@ -110,8 +110,7 @@ Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            //initialItem: languagePicker
-            initialItem: disksWizard
+            initialItem: languagePicker
         }
     }
 

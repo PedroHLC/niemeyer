@@ -32,21 +32,46 @@ QStringList DiskMgr::getTasks() {
 }
 
 QStringList DiskMgr::getDevices() {
-	devices = QStringList();
-	devices << QStringLiteral("sda");
-	devices << QStringLiteral("sdb");
+	QProcess process = QProcess();
+	process.setReadChannel(QProcess::StandardOutput);
+	process.start(QStringLiteral("lsblk -lndo NAME"));
+
+	QByteArray data;
+	while(process.waitForFinished())
+	    data.append(process.readAll());
+
+	devices = QTextCodec::codecForMib(106)->toUnicode(data.data()).split("\n");
+	devices.removeAll(QString(""));
 	return devices;
 }
 
 QStringList DiskMgr::getPartitions() {
-	partitions = QStringList();
-	partitions << QStringLiteral("sda1");
-	partitions << QStringLiteral("sda2");
-	partitions << QStringLiteral("sda3");
-	partitions << QStringLiteral("sdb1");
+	QProcess process = QProcess();
+	process.setReadChannel(QProcess::StandardOutput);
+	process.start(QStringLiteral("bash -c \"blkid | grep -Po '(?<=^/dev/)[^:]+'\""));
+
+	QByteArray data;
+	while(process.waitForFinished())
+	    data.append(process.readAll());
+
+	partitions = QTextCodec::codecForMib(106)->toUnicode(data.data()).split("\n");
+	partitions.removeAll(QString(""));
 	return partitions;
 }
 
+QStringList DiskMgr::getEXTPartitions() {
+	QProcess process = QProcess();
+	process.setReadChannel(QProcess::StandardOutput);
+	process.start(QStringLiteral("bash -c \"blkid | grep 'ext[2-4]' | grep -Po '(?<=^/dev/)[^:]+'\""));
+
+	QByteArray data;
+	while(process.waitForFinished())
+	    data.append(process.readAll());
+
+	extPartitions = QTextCodec::codecForMib(106)->toUnicode(data.data()).split("\n");
+	extPartitions.removeAll(QString(""));
+	return extPartitions;
+}
 
 void DiskMgr::setTask(int index, QString newText) {
 	if(newText.size() >= 1)
@@ -60,6 +85,21 @@ void DiskMgr::setTask(int index, QString newText) {
 void DiskMgr::taskDelete(int partIndex) {
 	QString device;
 	tasks << QString("parted /dev/%2 rm %1").arg(getPartNum(partitions.at(partIndex), &device)).arg(device);
+	emit tasksChanged();
+}
+
+void DiskMgr::taskResize(int extPartIndex, QString newEnd) {
+	QString partition = extPartitions.at(extPartIndex);
+	QString device;
+	tasks << QString("parted /dev/%2 resizepart %1 %3").arg(getPartNum(partition, &device)).arg(device).arg(newEnd);
+	tasks << QString("resize2fs /dev/%1").arg(partition);
+	emit tasksChanged();
+}
+
+void DiskMgr::taskMove(int partIndex, QString relocation) {
+	QString partition = partitions.at(partIndex);
+	QString device;
+	tasks << QString("echo '%3,' | sfdisk --move-data /dev/%2 -N %1").arg(getPartNum(partition, &device)).arg(device).arg(relocation);
 	emit tasksChanged();
 }
 
