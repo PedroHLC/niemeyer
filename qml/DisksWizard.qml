@@ -122,7 +122,7 @@ Component {
                             ComboBox {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                 id: removePartition
-                                model: ["sda1", "sda2", "sda3"] // disks.partitions
+                                model: disks.partitions
                             }
                             Column {
                                 Layout.fillWidth: true
@@ -140,22 +140,22 @@ Component {
                             ComboBox {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                 id: tablesAction
-                                model: ["Recreate", "Convert"]
+                                model: [qsTr("Recreate"), qsTr("Convert")]
                                 Layout.preferredWidth: 120
                             }
                             Text {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                                text: " device "
+                                text: qsTr(" device ")
                             }
                             ComboBox {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                 id: tablesDevice
-                                model: ["sda", "sdb"] // disks.devices
+                                model: disks.devices
                                 Layout.preferredWidth: 80
                             }
                             Text {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                                text: " in "
+                                text: qsTr(" in ")
                             }
                             ComboBox {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
@@ -169,7 +169,7 @@ Component {
                             Button {
                                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                                 text: qsTr("Add Task")
-                                onClicked: disks.taskTables(tablesAction.currentIndex, tablesDevice.currentIndex, tablesType.currentIndex)
+                                onClicked: disks.taskTables(tablesAction.currentIndex, tablesDevice.currentIndex, tablesType.currentText)
                             }
                         }
                     }
@@ -184,7 +184,6 @@ Component {
         }
 
         RowLayout {
-            //Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             Layout.fillHeight: false
             Layout.fillWidth: true
             Layout.topMargin: -20
@@ -214,13 +213,14 @@ Component {
                     spacing: 1
                     
                     Repeater {
-                        model: ["parted /dev/sda mktable GPT", "parted mkpart 61 0 91235", "mkfs.ext4 /dev/sda1" ]//disks.tasks
+                        model: disks.tasks
 
                         TextField {
                             anchors.topMargin: 0
                             Layout.fillWidth: true
+                            Layout.rightMargin: 10
                             text: modelData
-                            //onEditingFinished: disks.setTask(index, text)
+                            onEditingFinished: disks.setTask(index, text)
                         }
                     }
                 }
@@ -232,6 +232,7 @@ Component {
                 spacing: 1
                 Button {
                     text: qsTr("Reset")
+                    onClicked: disks.cleanTasks()
                 }
                 Button {
                     text: qsTr("Apply")

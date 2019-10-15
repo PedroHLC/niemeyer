@@ -14,16 +14,26 @@ class DiskMgr : public QObject {
 	Q_OBJECT
 	Q_PROPERTY(QString partedListOutput READ askPartedList NOTIFY syncDisks)
 	Q_PROPERTY(QStringList tasks READ getTasks NOTIFY tasksChanged)
+	Q_PROPERTY(QStringList partitions READ getPartitions NOTIFY syncDisks)
+	Q_PROPERTY(QStringList devices READ getDevices NOTIFY syncDisks)
 
 private:
 	QStringList tasks;
+	QStringList devices;
+	QStringList partitions;
 	QString finalScript;
 
 public:
 	explicit DiskMgr(QObject *parent = nullptr);
 	
 	QString askPartedList();
-	QString getTasks();
+	QStringList getTasks();
+	QStringList getDevices();
+	QStringList getPartitions();
+
+	Q_INVOKABLE void setTask(int, QString);
+	Q_INVOKABLE void taskTables(int, int, QString);
+	Q_INVOKABLE void cleanTasks();
 
 signals:
 	void syncDisks();
