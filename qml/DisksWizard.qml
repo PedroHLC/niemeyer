@@ -25,7 +25,7 @@ Component {
 
         Rectangle {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-            Layout.fillHeight: false
+            Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.topMargin: -20
             Layout.leftMargin: 20
@@ -60,14 +60,21 @@ Component {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             Layout.leftMargin: 20
             Layout.rightMargin: 20
-            Layout.fillHeight: true
+            Layout.fillHeight: false
+            Layout.preferredHeight: disksTasksTabs.height
             Layout.fillWidth: true
             border.color: "lightgray"
             border.width: 1
             clip: true
+
             ColumnLayout {
-                anchors.fill: parent
+                id: disksTasksTabs
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
                 anchors.margins: 1
+                spacing: 10
+                
                 TabBar {
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                     Layout.fillWidth: true
@@ -103,6 +110,8 @@ Component {
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                     Layout.leftMargin: 10
                     Layout.rightMargin: 10
+                    Layout.bottomMargin: 10
+                    Layout.preferredHeight: 40
                     Item { // Remove
                         RowLayout {
                             anchors.fill: parent

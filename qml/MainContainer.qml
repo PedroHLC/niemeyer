@@ -29,6 +29,7 @@ Rectangle {
     }
 
     Rectangle {
+        id: contentPage
         width: 640
         height: 480
         clip: true
@@ -64,6 +65,36 @@ Rectangle {
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     text: "⋮"
                     onClicked: menu.open()
+                    Menu {
+                        id: menu
+                        Action {
+                            text: qsTr("Open Terminal")
+                        }
+                        MenuSeparator {}
+                        Action {
+                            text: "640x480"
+                            onTriggered: {
+                                contentPage.width = 640
+                                contentPage.height = 480
+                            }
+                        }
+                        Action {
+                            text: "800x600"
+                            enabled: (container.width >= 800 && container.height >= 600)
+                            onTriggered: {
+                                contentPage.width = 800
+                                contentPage.height = 600
+                            }
+                        }
+                        Action {
+                            text: "1024x768"
+                            enabled: (container.width >= 1024 && container.height >= 768)
+                            onTriggered: {
+                                contentPage.width = 1024
+                                contentPage.height = 768
+                            }
+                        }
+                    }
                 }
             }
         }
