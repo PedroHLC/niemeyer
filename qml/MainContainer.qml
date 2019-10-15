@@ -94,6 +94,11 @@ Rectangle {
                                 contentPage.height = 768
                             }
                         }
+                        MenuSeparator {}
+                        Action {
+                            text: qsTr("Abort")
+                            onTriggered: Qt.quit()
+                        }
                     }
                 }
             }
