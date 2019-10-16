@@ -2,6 +2,101 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pt_BR" sourcelanguage="en_US">
 <context>
+    <name>DisksWizard</name>
+    <message>
+        <source>Current situation:</source>
+        <translation>Discos atuais:</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Remover</translation>
+    </message>
+    <message>
+        <source>Tables</source>
+        <translation>Tabelas</translation>
+    </message>
+    <message>
+        <source>Resize</source>
+        <translation>Redimensionar</translation>
+    </message>
+    <message>
+        <source>Move</source>
+        <translation>Mover</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation>Criar</translation>
+    </message>
+    <message>
+        <source>Flags</source>
+        <translation>Atributos</translation>
+    </message>
+    <message>
+        <source>Format</source>
+        <translation>Formatar</translation>
+    </message>
+    <message>
+        <source>Select partition: </source>
+        <translation>Selecione a partição: </translation>
+    </message>
+    <message>
+        <source>Add Task</source>
+        <translation>Adicionar</translation>
+    </message>
+    <message>
+        <source>Recreate</source>
+        <translation>Recriar</translation>
+    </message>
+    <message>
+        <source>Convert</source>
+        <translation>Converter</translation>
+    </message>
+    <message>
+        <source> device </source>
+        <translation> dispositivo </translation>
+    </message>
+    <message>
+        <source> in </source>
+        <translation> em </translation>
+    </message>
+    <message>
+        <source>and new end: </source>
+        <translation>e novo fim: </translation>
+    </message>
+    <message>
+        <source>and relocation: </source>
+        <translation>e realocação: </translation>
+    </message>
+    <message>
+        <source> and flag: </source>
+        <translation> e atributo: </translation>
+    </message>
+    <message>
+        <source> and new type: </source>
+        <translation> e novo tipo: </translation>
+    </message>
+    <message>
+        <source>Tasks to apply: (Leave empty to delete)</source>
+        <translation>Tarefas para aplicar: (Deixe vazia para excluir)</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Limpar</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <source>Next (Mountpoints)</source>
+        <translation>Próximo</translation>
+    </message>
+</context>
+<context>
     <name>EthernetMenu</name>
     <message>
         <source>Select adapter: </source>
@@ -162,6 +257,17 @@ Caso não tenha certeza, deixe o padrão</translation>
     </message>
 </context>
 <context>
+    <name>MainContainer</name>
+    <message>
+        <source>Open Terminal</source>
+        <translation>Abrir Terminal</translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation>Abortar</translation>
+    </message>
+</context>
+<context>
     <name>MirrorsSort</name>
     <message>
         <source>Sort pacman mirrors:</source>
@@ -178,6 +284,17 @@ Caso não tenha certeza, deixe o padrão</translation>
     <message>
         <source>Back</source>
         <translation>Voltar</translation>
+    </message>
+</context>
+<context>
+    <name>MountPoints</name>
+    <message>
+        <source>Back</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Próximo</translation>
     </message>
 </context>
 <context>
@@ -222,6 +339,17 @@ um script para o netctl, esse script poderá ser editado antes de conectar.</tra
     </message>
 </context>
 <context>
+    <name>PkgSelect</name>
+    <message>
+        <source>Back</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Próximo</translation>
+    </message>
+</context>
+<context>
     <name>UserSetup</name>
     <message>
         <source>User settings</source>
@@ -245,15 +373,23 @@ um script para o netctl, esse script poderá ser editado antes de conectar.</tra
     </message>
     <message>
         <source>Hostname:</source>
-        <translation>Nome do host</translation>
+        <translation>Nome do host:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>Aplicar</translation>
+        <translation type="vanished">Aplicar</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Próximo</translation>
     </message>
 </context>
 <context>
@@ -289,6 +425,21 @@ um script para o netctl, esse script poderá ser editado antes de conectar.</tra
     <message>
         <source>Apply</source>
         <translation>Aplicar</translation>
+    </message>
+</context>
+<context>
+    <name>ZonePicker</name>
+    <message>
+        <source>Select system&apos;s clock timezone:</source>
+        <translation>Selecione a região do relógio do sistema:</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Voltar</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Próximo</translation>
     </message>
 </context>
 </TS>
