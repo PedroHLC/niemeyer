@@ -119,15 +119,39 @@ void DiskMgr::cleanTasks() {
 }
 
 void DiskMgr::taskCreate(int devIndex, QString type, QString fs, QString begin, QString end) {
-
+	tasks << QString("parted /dev/%1 mkpart %2 %3 %4 %5").arg(devices.at(devIndex)).arg(type).arg(fs).arg(begin).arg(end);
 }
 
-void DiskMgr::taskFlag(int minor, QString type, bool state) {
-
+void DiskMgr::taskFlag(int minor, QString flag, bool state) {
+	QString partition = partitions.at(minor);
+	QString device;
+	tasks << QString("parted /dev/%2 set %1 %2 %3").arg(getPartNum(partition, &device)).arg(flag).arg(state ? "on" : "off");
 }
 
 void DiskMgr::taskFormat(int partIndex, int fsIndex) {
-
+	QString partition = partitions.at(partIndex);
+	switch(fsIndex) {
+		case 0: // BtrFS
+			tasks << QString("mkfs.btfs -q /dev/%1").arg(partition);
+			break;
+		case 1: // ExFAT
+			tasks << QString("mkexfatfs /dev/%1").arg(partition);
+			break;
+		case 2: // EXT4
+			tasks << QString("mkfs.ext4 -q /dev/%1").arg(partition);
+			break;
+		case 3: // FAT32
+			tasks << QString("mkfs.fat -F32 -q /dev/%1").arg(partition);
+			break;
+		case 4: // NTFS
+			tasks << QString("mkntfs -qf /dev/%1").arg(partition);
+			break;
+		case 5: // F2FS
+			tasks << QString("mkfs.f2fs -q /dev/%1").arg(partition);
+			break;
+		default:
+			tasks << QString("mkfs %1").arg(partition);
+	}
 }
 
 
