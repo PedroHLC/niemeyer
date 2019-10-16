@@ -154,10 +154,23 @@ void DiskMgr::taskFormat(int partIndex, int fsIndex) {
 	}
 }
 
-
 int DiskMgr::getPartNum(QString deviceAndPart, QString *deviceOnly) {
 	QRegularExpression re("^([^0-9]+)([0-9]+)$");
 	QRegularExpressionMatch match = re.match(deviceAndPart);
 	*deviceOnly = match.captured(1);
 	return match.captured(2).toInt();	
 }
+
+bool DiskMgr::genFinalScript() {
+	QFile finalScript("/tmp/partitionate.sh");
+	if(!finalScript.open(QIODevice::WriteOnly | QIODevice::Text))
+		return false;
+
+	finalScript.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner);
+
+	QTextStream scriptStream(&finalScript);
+	scriptStream << "#!/usr/bin/bash -e\n" << tasks.join("\n");
+
+	finalScript.close();
+	return true;
+} 

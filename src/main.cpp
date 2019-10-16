@@ -4,7 +4,7 @@
     Distributed under the GPL v2. For full terms see the file LICENSE.
 */
 
-#include <QGuiApplication>
+#include <QtWidgets/QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QObject>
@@ -24,7 +24,7 @@
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
     QUrl appPath(app.applicationDirPath());
 
     // I coded this to use Material, but never enabled it.

@@ -1,6 +1,5 @@
 #!/usr/bin/qmake -makefile
-QT += quick
-QT += quickcontrols2
+QT += widgets quick quickcontrols2
 CONFIG += c++17
 
 DESTDIR=bin

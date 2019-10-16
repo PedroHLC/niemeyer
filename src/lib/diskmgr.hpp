@@ -23,8 +23,7 @@ private:
 	QStringList devices;
 	QStringList partitions;
 	QStringList extPartitions;
-	QString finalScript;
-
+	
 	int getPartNum(QString, QString*);
 
 public:
@@ -46,6 +45,7 @@ public:
 	Q_INVOKABLE void taskFormat(int, int);
 	Q_INVOKABLE void cleanTasks();
 
+	Q_INVOKABLE bool genFinalScript();
 signals:
 	void syncDisks();
 	void tasksChanged();

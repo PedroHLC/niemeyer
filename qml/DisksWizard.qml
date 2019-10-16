@@ -410,8 +410,13 @@ Component {
                     onClicked: disks.cleanTasks()
                 }
                 Button {
+                    enabled: disks.tasks.size() >= 1
                     text: qsTr("Apply")
                     highlighted: true
+                    onClicked: {
+                        if(disks.genFinalScript())
+                            contentStack.push(terminalRun, {command: "/tmp/partitionate.sh"});
+                    }
                 }
             }
 
