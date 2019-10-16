@@ -92,10 +92,13 @@ Component {
                     }
                 }
 
-                Row {
+                Rectangle {
                     id: wifiProfileTextView
                     width: 480
                     height: 90
+                    border.width: 1
+                    border.color: "lightgray"
+
                     ScrollView {
                         anchors.top: parent.top
                         width: parent.width

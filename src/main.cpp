@@ -4,7 +4,7 @@
     Distributed under the GPL v2. For full terms see the file LICENSE.
 */
 
-#include <QGuiApplication>
+#include <QtWidgets/QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QObject>
@@ -20,10 +20,11 @@
 #include "lib/mirrors.hpp"
 #include "lib/locales.hpp"
 #include "lib/user.hpp"
+#include "lib/diskmgr.hpp"
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
     QUrl appPath(app.applicationDirPath());
 
     // I coded this to use Material, but never enabled it.
@@ -45,6 +46,7 @@ int main(int argc, char *argv[])
     Mirrors * m_mirrors = new Mirrors(&view);
     Locales * m_locales = new Locales(&view);
     User * m_user = new User(&view);
+    DiskMgr * m_disks = new DiskMgr(&view);
 
     // Context props
     context->setContextProperty(QStringLiteral("translations"), m_translations);
@@ -53,6 +55,7 @@ int main(int argc, char *argv[])
     context->setContextProperty(QStringLiteral("mirrors"), m_mirrors);
     context->setContextProperty(QStringLiteral("locales"), m_locales);
     context->setContextProperty(QStringLiteral("user"), m_user);
+    context->setContextProperty(QStringLiteral("disks"), m_disks);
     context->setContextProperty(QStringLiteral("assetsPath"), appPath.resolved(QStringLiteral(ASSETS_PATH)));
     
     // Some connections

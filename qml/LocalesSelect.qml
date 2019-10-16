@@ -104,7 +104,7 @@ Component {
             Button {
                 text: qsTr('Next')
                 highlighted: true
-                onClicked: contentStack.push(userSetup)
+                onClicked: contentStack.push(disksWizard)
             }
         }
     }

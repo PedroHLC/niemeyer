@@ -12,7 +12,7 @@ A setup wizard for ArchLinux using Qt and compatible with EGLFS.
 # Building
 ## Dependencies
 ```
-pacman -S qt5-base qt5-quickcontrols2 libinput libxkbcommon
+pacman -S qt5-base qt5-quickcontrols2 libinput libxkbcommon qmltermwidget
 ```
 
 ## How to build?

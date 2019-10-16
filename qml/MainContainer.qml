@@ -9,6 +9,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
+import QtQuick.Layouts 1.13
 
 Rectangle {
     id: container
@@ -28,6 +29,7 @@ Rectangle {
     }
 
     Rectangle {
+        id: contentPage
         width: 640
         height: 480
         clip: true
@@ -44,23 +46,63 @@ Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
             
-            Row {
+            RowLayout {
                 anchors.fill: parent
                 ToolButton {
+                    Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                     id: containerBack
                     text: "‹"
                     onClicked: contentStack.pop()
-                    anchors.left: parent.left
                 }
                 Label {
+                    Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                     text: "Chaotic Installer"
-                    anchors.left: containerBack.right
-                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Column {
+                    Layout.fillWidth: true
                 }
                 ToolButton {
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     text: "⋮"
                     onClicked: menu.open()
-                    anchors.right: parent.right
+                    Menu {
+                        id: menu
+                        Action {
+                            text: qsTr("Open Terminal")
+                            onTriggered: contentStack.push(
+                                terminalRun,
+                                {shell: "fish"})
+                        }
+                        MenuSeparator {}
+                        Action {
+                            text: "640x480"
+                            onTriggered: {
+                                contentPage.width = 640
+                                contentPage.height = 480
+                            }
+                        }
+                        Action {
+                            text: "800x600"
+                            enabled: (container.width >= 800 && container.height >= 600)
+                            onTriggered: {
+                                contentPage.width = 800
+                                contentPage.height = 600
+                            }
+                        }
+                        Action {
+                            text: "1024x768"
+                            enabled: (container.width >= 1024 && container.height >= 768)
+                            onTriggered: {
+                                contentPage.width = 1024
+                                contentPage.height = 768
+                            }
+                        }
+                        MenuSeparator {}
+                        Action {
+                            text: qsTr("Abort")
+                            onTriggered: Qt.quit()
+                        }
+                    }
                 }
             }
         }
@@ -82,5 +124,11 @@ Rectangle {
     EthernetMenu { id: ethMenu }
     MirrorsSort { id: mirrorsSort }
     LocalesSelect { id: localesSelect }
+    DisksWizard { id: disksWizard }
+    MountPoints { id: fsTab }
     UserSetup { id: userSetup }
+    ZonePicker { id: zonePicker }
+    PkgSelect { id: pkgSelect }
+    TerminalRun { id: terminalRun }
+    Finalize { id: finalize }
 }
