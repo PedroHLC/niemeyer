@@ -57,6 +57,7 @@ Component {
         }
 
         Rectangle {
+            id: advancedScreen
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             Layout.leftMargin: 20
             Layout.rightMargin: 20
@@ -433,6 +434,8 @@ Component {
                     onClicked: contentStack.pop()
                 }
             }
+
+            // TODO: Add (Easy-Advanced) switch here
 
             Column {
                 Button {

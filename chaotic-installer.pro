@@ -15,13 +15,13 @@ HEADERS = chaotic-installer.hpp \
 	lib/translations.hpp lib/keymap.hpp \
 	lib/network.hpp lib/mirrors.hpp \
 	lib/locales.hpp lib/user.hpp \
-	lib/diskmgr.hpp
+	lib/diskmgr.hpp lib/zones.hpp
 
 SOURCES = main.cpp \
 	lib/translations.cpp  lib/keymap.cpp \
 	lib/network.cpp lib/mirrors.cpp \
 	lib/locales.cpp lib/user.cpp \
-	lib/diskmgr.cpp
+	lib/diskmgr.cpp lib/zones.cpp
 
 TARGET = chaotic-installer
 
