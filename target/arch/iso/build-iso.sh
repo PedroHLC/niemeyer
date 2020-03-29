@@ -1,6 +1,7 @@
 #!/usr/bin/bash
-DEST="$PWD/archlive"
 set -o errexit
+DEST="$PWD/archlive"
+REPO='niemeyer'
 
 # Install tools in case it's required
 ([ -f /usr/bin/mkarchiso ] && [ -f /usr/bin/sudo ] && [ -f /usr/bin/makepkg ]) \
@@ -25,13 +26,13 @@ echo 'niemeyer' >> "$DEST"/packages.*
 
 # create the local repo for installing it
 pushd "$DEST/repo"
-	repo-add local.db.tar.gz *.pkg.tar.*
+	repo-add "${REPO}.db.tar.gz" *.pkg.tar.*
 popd
 
 # install the repo
 tee -a "$DEST/pacman.conf" > /dev/null << EOF
 # local repository
-[local]
+[$REPO]
 SigLevel = Optional TrustAll
 Server = file:///$PWD/archlive/repo
 
