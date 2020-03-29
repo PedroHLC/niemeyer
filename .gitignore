@@ -1,6 +1,11 @@
 /Makefile
-bin/
-build/
+/bin/
+/build/
+/target/*/iso/*live/
+/target/*/pkg/src/
+/target/*/pkg/pkg/
+/target/*/pkg/niemeyer/
+/target/*/pkg/*.pkg.tar.*
 .qmake.stash
 *.json
 *.qm
