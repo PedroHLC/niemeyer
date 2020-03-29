@@ -132,7 +132,7 @@ void DiskMgr::taskFormat(int partIndex, int fsIndex) {
 	QString partition = partitions.at(partIndex);
 	switch(fsIndex) {
 		case 0: // BtrFS
-			tasks << QString("mkfs.btfs -q /dev/%1").arg(partition);
+			tasks << QString("mkfs.btrfs -q /dev/%1").arg(partition);
 			break;
 		case 1: // ExFAT
 			tasks << QString("mkexfatfs /dev/%1").arg(partition);
@@ -162,7 +162,7 @@ int DiskMgr::getPartNum(QString deviceAndPart, QString *deviceOnly) {
 }
 
 bool DiskMgr::genFinalScript() {
-	QFile finalScript("/tmp/partitionate.sh");
+	QFile finalScript("/tmp/00-disks.sh");
 	if(!finalScript.open(QIODevice::WriteOnly | QIODevice::Text))
 		return false;
 

@@ -25,6 +25,7 @@ mkdir -p "$DEST/repo"
 
 # cleanup old files
 sudo rm -rf "$DEST/"/{work/{out/*.iso,build.make_*},airootfs/etc/systemd/system/display-manager.service}
+sudo rm -rf "$DEST/work/"*/airootfs/var/cache/pacman/pkg/niemeyer*
 rm -f "$DEST/repo"/*
 
 # install Niemeyer
