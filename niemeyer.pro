@@ -11,7 +11,7 @@ VPATH *= $${BASEDIR}/src
 
 TRANSLATIONS = langs/en_US.ts langs/pt_BR.ts
 
-HEADERS = chaotic-installer.hpp \
+HEADERS = niemeyer.hpp \
 	lib/translations.hpp lib/keymap.hpp \
 	lib/network.hpp lib/mirrors.hpp \
 	lib/locales.hpp lib/user.hpp \
@@ -23,7 +23,7 @@ SOURCES = main.cpp \
 	lib/locales.cpp lib/user.cpp \
 	lib/diskmgr.cpp lib/zones.cpp
 
-TARGET = chaotic-installer
+TARGET = niemeyer
 
 lupdate_only {
     SOURCES = qml/*.qml

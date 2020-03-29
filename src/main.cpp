@@ -13,7 +13,7 @@
 #include <QtQuickControls2/QQuickStyle>
 #include <QTranslator>
 
-#include "chaotic-installer.hpp"
+#include "niemeyer.hpp"
 #include "lib/translations.hpp"
 #include "lib/keymap.hpp"
 #include "lib/network.hpp"
