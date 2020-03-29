@@ -4,4 +4,9 @@ export XDG_RUNTIME_DIR=/tmp/niemeyer-runtime
 mkdir -p "$XDG_RUNTIME_DIR" && chmod 0700 "$XDG_RUNTIME_DIR"
 export LANG='en_US.UTF-8'
 
+tee /tmp/niemeyer.kms.cfg << EOF
+{ "hwcursor": false }
+EOF
+export QT_QPA_EGLFS_KMS_CONFIG=/tmp/niemeyer.kms.cfg
+
 niemeyer $@

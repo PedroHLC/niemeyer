@@ -69,9 +69,7 @@ Rectangle {
                         id: menu
                         Action {
                             text: qsTr("Open Terminal")
-                            onTriggered: contentStack.push(
-                                terminalRun,
-                                {shell: "fish"})
+                            onTriggered: contentStack.push(terminalRun)
                         }
                         MenuSeparator {}
                         Action {

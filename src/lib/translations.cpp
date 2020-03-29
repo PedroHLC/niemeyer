@@ -12,15 +12,16 @@
 
 Translations::Translations(QGuiApplication* app, QQmlEngine * engine, QObject *parent) :
 	QObject (parent), app(app),  engine(engine) {
+	appDir = app->applicationDirPath();
 	translator = new QTranslator(this);
 }
 
 void Translations::setLang(QString locale) {
 	QString path =
-		QStringLiteral(LANGS_PATH "/%1.qm")
+		QStringLiteral("../" LANGS_PATH "%1.qm")
 		.arg(locale);
 
-	if(!translator->load(path)) {
+	if(!translator->load(path, appDir)) {
 		qDebug() << "Failed to load translation file " << path;
 		return;
 	}

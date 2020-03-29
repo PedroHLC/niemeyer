@@ -31,9 +31,7 @@ rm -f "$DEST/repo"/*
 cp ../pkg/niemeyer*.pkg.tar.* "$DEST/repo/"
 
 tee -a "$DEST"/packages.* << EOF
-breeze-icons
-capitaine-cursors
-cantarell-fonts
+noto-fonts
 niemeyer
 EOF
 

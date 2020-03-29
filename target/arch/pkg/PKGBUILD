@@ -5,11 +5,11 @@ pkgver=0.0.1
 pkgrel=1
 pkgdesc='An ArchLinux GUI installer that focuses on generating a customizable mkrootfs script.'
 arch=(x86_64 aarch64)
-url=""
+url="https://github.com/PedroHLC/niemeyer"
 license=('GPL')
 depends=(qt5-base qt5-quickcontrols2 libinput libxkbcommon qmltermwidget)
 makedepends=(qt5-tools)
-source=('git+https://github.com/PedroHLC/niemeyer.git')
+source=("git+${url}.git")
 md5sums=('SKIP')
 
 build() {

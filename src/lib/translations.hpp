@@ -23,6 +23,7 @@ private:
 	QQmlEngine *engine;
 	QTranslator *translator;
 	QString selectedLang;
+	QString appDir;
 
 public:
 	explicit Translations(QGuiApplication *app, QQmlEngine *engine,
