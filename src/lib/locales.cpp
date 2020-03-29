@@ -1,7 +1,7 @@
 /*  Niemeyer System's Locales
 	(List availables, allow toggling, convert to and choose LANG env)
     
-    Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>
+    Copyright (C) 2019-2020 Pedro Henrique Lara Campos <root@pedrohlc.com>
     Distributed under the GPL v2. For full terms see the file LICENSE.
 */
 
