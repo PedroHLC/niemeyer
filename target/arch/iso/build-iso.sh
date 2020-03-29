@@ -15,13 +15,17 @@ build_niemeyer() {
 }
 [ -f ../pkg/niemeyer*.pkg.tar.* ] || build_niemeyer
 
-# Copy the original's profile
-cp -r /usr/share/archiso/configs/releng "$DEST"
+# Copy (overwriting) the original's profile
+if [ -d "$DEST" ]; then
+	cp -rt "$DEST" /usr/share/archiso/configs/releng/*
+else
+	cp -r /usr/share/archiso/configs/releng "$DEST"
+fi
 mkdir -p "$DEST/repo"
 
 # cleanup old files
-sudo rm -v "$DEST/work"/build.make_* "$DEST/work"/out/*.iso
-rm "$DEST/repo"/*
+sudo rm -rf "$DEST/"/{work/{out/*.iso,build.make_*},airootfs/etc/systemd/system/display-manager.service}
+rm -f "$DEST/repo"/*
 
 # install Niemeyer
 cp ../pkg/niemeyer*.pkg.tar.* "$DEST/repo/"
