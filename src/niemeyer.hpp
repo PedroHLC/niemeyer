@@ -8,6 +8,6 @@
 #define NIEMEYER_H
 
 #define QML_PATH "qml/"
-#define ASSETS_PATH "assets/"
+#define ASSETS_PATH "share/niemeyer/"
 
 #endif // NIEMEYER_H
