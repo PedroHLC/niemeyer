@@ -2,7 +2,7 @@
 pkgname=niemeyer
 pkgver=0.0.1
 pkgrel=1
-pkgdesc='An ArchLinux installer that focuses on generating a customizable mkrootfs script.'
+pkgdesc='An ArchLinux GUI installer that focuses on generating a customizable mkrootfs script.'
 arch=(x86_64 aarch64)
 url=""
 license=('GPL')
@@ -14,7 +14,7 @@ md5sums=('SKIP')
 build() {
   cd "$pkgname"
 
-  qmake -makefile -project niemeyer.pro
+  qmake -makefile niemeyer.pro
   make
   lrelease niemeyer.pro
 }

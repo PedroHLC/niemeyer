@@ -9,6 +9,7 @@
 
 #include <QObject>
 #include <QList>
+#include <QFile>
 
 class MirrorEntry : public QObject {
 	Q_OBJECT
