@@ -31,4 +31,7 @@ package() {
   
   install -dm 755 "$pkgdir/usr/lib/niemeyer/qml"
   install -Dm 644 lib/niemeyer/qml/* "$pkgdir/usr/lib/niemeyer/qml/"
+
+  install -dm 755 "$pkgdir/usr/lib/systemd/system"
+  install -Dm 644 launcher/niemeyer.service "$pkgdir/usr/lib/systemd/system/"
 }
