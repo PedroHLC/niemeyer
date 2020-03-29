@@ -35,7 +35,3 @@ export QT_QPA_PLATFORM='eglfs'
 
 # What it looks like?
 ![Language Picking Screen](screenshot.png)
-
-# Is it related to Chaotic-AUR repository?
-Both projects are maintained by the same Pedro, and you'll find a ready to burn ISO with Chaotic Installer available in Chaotic-AUR (soon).
-But, this installer doesn't include Chaotic-AUR, any of its packages, and won't offer to add it.
