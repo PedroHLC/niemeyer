@@ -7,7 +7,7 @@
 #ifndef NIEMEYER_H
 #define NIEMEYER_H
 
-#define QML_PATH "qml/"
+#define QML_PATH "lib/niemeyer/qml/"
 #define ASSETS_PATH "share/niemeyer/"
 
 #endif // NIEMEYER_H

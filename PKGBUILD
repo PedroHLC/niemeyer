@@ -22,5 +22,13 @@ build() {
 package() {
   cd "$pkgname"
 
-  make DESTDIR="$pkgdir/" install
+  install -dm 755 "$pkgdir/usr/bin/"
+  install -Dm 755 bin/niemeyer "$pkgdir/usr/bin/"
+  install -Dm 755 launcher/start-niemeyer "$pkgdir/usr/bin/"
+
+  install -dm 755 "$pkgdir/usr/share/niemeyer"
+  install -Dm 644 share/niemeyer/background.jpg "$pkgdir/usr/share/niemeyer/"
+  
+  install -dm 755 "$pkgdir/usr/lib/niemeyer/qml"
+  install -Dm 644 lib/niemeyer/qml/* "$pkgdir/usr/lib/niemeyer/qml/"
 }
