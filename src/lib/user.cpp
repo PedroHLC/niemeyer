@@ -1,4 +1,4 @@
-/*  Chaotic Installer Users
+/*  Niemeyer Users
     (Set root and first user password, validate for the same input)
     
     Copyright (C) 2019 Vagner S. <vagnervst17@gmail.com>

@@ -1,4 +1,4 @@
-/*  Chaotic Installer Users Headers
+/*  Niemeyer Users Headers
     
     Copyright (C) 2019 Vagner S. <vagnervst17@gmail.com>
 

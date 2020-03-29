@@ -1,4 +1,4 @@
-/*  Chaotic Installer Disks Wizard Container
+/*  Niemeyer Disks Wizard Container
 
     I like to write this by hand, do whatever you want, but keep diff clean to read, so I
     can keep writing it manually.

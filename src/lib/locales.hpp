@@ -1,4 +1,4 @@
-/*  Chaotic Installer System's Locales Headers
+/*  Niemeyer System's Locales Headers
     
     Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>
     Distributed under the GPL v2. For full terms see the file LICENSE.

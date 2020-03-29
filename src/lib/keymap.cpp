@@ -1,4 +1,4 @@
-/*  Chaotic Installer Keymaps
+/*  Niemeyer Keymaps
 	(List availables, choose and set a keyboard keymap)
     
     Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>

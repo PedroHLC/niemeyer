@@ -1,4 +1,4 @@
-/*  Chaotic Installer System's Locales
+/*  Niemeyer System's Locales
 	(List availables, allow toggling, convert to and choose LANG env)
     
     Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>

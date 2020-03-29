@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 export QT_QPA_PLATFORM=eglfs
-export XDG_RUNTIME_DIR=/tmp/chaotic-intaller-runtime
+export XDG_RUNTIME_DIR=/tmp/niemeyer-runtime
 mkdir -p "$XDG_RUNTIME_DIR" && chmod 0700 "$XDG_RUNTIME_DIR"
 export LANG='en_US.UTF-8'
 
-chaotic-installer $@
+niemeyer $@

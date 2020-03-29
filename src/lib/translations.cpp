@@ -1,4 +1,4 @@
-/*  Chaotic Installer Translations
+/*  Niemeyer Translations
 	(Load and set Qt translator and locale)
     
     Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>

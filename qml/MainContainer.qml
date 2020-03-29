@@ -1,4 +1,4 @@
-/*  Chaotic Installer Main View
+/*  Niemeyer Main View
 
     I like to write this by hand, do whatever you want, but keep diff clean to read, so I
     can keep writing it manually.
@@ -56,7 +56,7 @@ Rectangle {
                 }
                 Label {
                     Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                    text: "Chaotic Installer"
+                    text: "Niemeyer"
                 }
                 Column {
                     Layout.fillWidth: true

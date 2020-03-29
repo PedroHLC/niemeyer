@@ -1,4 +1,4 @@
-/*  Chaotic Installer Repo's Mirrors
+/*  Niemeyer Repo's Mirrors
 	(List URLs, toogle each one, sort as preferred)
     
     Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>

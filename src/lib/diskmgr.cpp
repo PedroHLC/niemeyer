@@ -1,4 +1,4 @@
-/*  Chaotic Installer Disks Manager
+/*  Niemeyer Disks Manager
 	(Overall disk tools wrapper)
     
     Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>

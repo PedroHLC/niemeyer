@@ -1,4 +1,4 @@
-/*  Chaotic Installer Packages Select Screen
+/*  Niemeyer Packages Select Screen
 
     I like to write this by hand, do whatever you want, but keep diff clean to read, so I
     can keep writing it manually.

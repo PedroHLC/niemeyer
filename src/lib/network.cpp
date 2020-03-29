@@ -1,4 +1,4 @@
-/*  Chaotic Installer Network
+/*  Niemeyer Network
 	(Wifi Scan and Netctl's profile generator)
     
     Copyright (C) 2019 Pedro Henrique Lara Campos <root@pedrohlc.com>
@@ -147,13 +147,13 @@ void Network::applyWifiProfile() {
 void Network::applyProfile(QString profileData) {
 	QProcess::execute(QStringLiteral("netctl stop-all"));
 
-	QFile proFile("/etc/netctl/chaotic-setup");
+	QFile proFile("/etc/netctl/niemeyer");
 	if (!proFile.open(QIODevice::WriteOnly | QIODevice::Text))
         return;
 	proFile.write(profileData.toUtf8());
 	proFile.close();
 
-	QProcess::execute(QStringLiteral("netctl start chaotic-setup"));
+	QProcess::execute(QStringLiteral("netctl start niemeyer"));
 
 	emit availabilityChanged();	
 }
