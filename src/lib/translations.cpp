@@ -17,7 +17,7 @@ Translations::Translations(QGuiApplication* app, QQmlEngine * engine, QObject *p
 
 void Translations::setLang(QString locale) {
 	QString path =
-		QStringLiteral("langs/%1.qm")
+		QStringLiteral(LANGS_PATH "/%1.qm")
 		.arg(locale);
 
 	if(!translator->load(path)) {

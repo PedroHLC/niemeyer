@@ -9,5 +9,6 @@
 
 #define QML_PATH "lib/niemeyer/qml/"
 #define ASSETS_PATH "share/niemeyer/"
+#define LANGS_PATH "lib/niemeyer/i18n/"
 
 #endif // NIEMEYER_H

@@ -19,10 +19,19 @@ build_niemeyer() {
 cp -r /usr/share/archiso/configs/releng "$DEST"
 mkdir -p "$DEST/repo"
 
+# cleanup old files
+sudo rm -v "$DEST/work"/build.make_* "$DEST/work"/out/*.iso
+rm "$DEST/repo"/*
+
 # install Niemeyer
 cp ../pkg/niemeyer*.pkg.tar.* "$DEST/repo/"
 
-echo 'niemeyer' >> "$DEST"/packages.*
+tee -a "$DEST"/packages.* << EOF
+breeze-icons
+capitaine-cursors
+cantarell-fonts
+niemeyer
+EOF
 
 # create the local repo for installing it
 pushd "$DEST/repo"
@@ -39,8 +48,23 @@ Server = file:///$PWD/archlive/repo
 EOF
 
 # install Niemeyer as Display Manager
-ln -s /usr/lib/systemd/system/niemeyer.service \
-	"$DEST/airootfs/etc/systemd/system/display-manager.service"
+pushd "$DEST/airootfs/etc/systemd/system"
+	ln -s ../../../usr/lib/systemd/system/niemeyer.service ./display-manager.service
+popd
 
-cd archlive
+sed -i'' \
+	's/multi-user.target/graphical.target/g' \
+	"$DEST/airootfs/root/customize_airootfs.sh"
+
+# increment locale to other translations
+sudo sed -i \
+	-e "/\/etc\/locale.gen/r /dev/stdin" \
+	"$DEST/airootfs/root/customize_airootfs.sh" \
+	> /dev/null << EOF
+sed -i 's/#\(pt_BR\.UTF-8\)/\1/' /etc/locale.gen
+EOF
+
+
+# finally build it
+cd "$DEST"
 sudo ./build.sh -v

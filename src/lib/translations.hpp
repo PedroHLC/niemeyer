@@ -12,6 +12,7 @@
 #include <QTranslator>
 #include <QGuiApplication>
 #include <QQmlEngine>
+#include "../niemeyer.hpp"
 
 class Translations : public QObject {
 	Q_OBJECT

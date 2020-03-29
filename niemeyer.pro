@@ -9,7 +9,7 @@ MOC_DIR=build
 BASEDIR = $${PWD}
 VPATH *= $${BASEDIR}/src
 
-TRANSLATIONS = langs/en_US.ts langs/pt_BR.ts
+TRANSLATIONS = lib/niemeyer/i18n/en_US.ts lib/niemeyer/i18n/pt_BR.ts
 
 HEADERS = niemeyer.hpp \
 	lib/translations.hpp lib/keymap.hpp \
