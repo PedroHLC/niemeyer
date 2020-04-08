@@ -164,13 +164,19 @@ Component {
                 text: qsTr('Back')
                 onClicked: contentStack.pop()
             }
+
+            Button {
+                text: qsTr('Apply')
+                onClicked: {
+                   mirrors.apply()
+                }
+            }
             
             Button {
-                text: qsTr('Apply && Next')
+                text: qsTr('Next')
                 highlighted: true
                 //[TODO] Require at least one active mirror!
                 onClicked: {
-                   mirrors.apply()
                    contentStack.push(localesSelect) 
                 }
             }

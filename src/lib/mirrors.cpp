@@ -5,7 +5,8 @@
     Distributed under the GPL v2. For full terms see the file LICENSE.
 */
 
-#include <QProcess>
+#include <QRegularExpression>
+#include <QRegularExpressionMatchIterator>
 #include <QTextCodec>
 #include <QTextStream>
 
@@ -15,17 +16,22 @@ Mirrors::Mirrors(QObject *parent) : QObject (parent) {}
 
 QList<MirrorEntry*> Mirrors::getMirrors() {
 	if(mirrorsList.size() < 1) {
-		QProcess process = QProcess();
-		process.setReadChannel(QProcess::StandardOutput);
-		process.start(QStringLiteral("grep -Po \"(?<=Server\\ =\\ ).*$\" /etc/pacman.d/mirrorlist"));
+		QStringList txtList;
 
-		QByteArray data;
-		while(process.waitForFinished())
-		    data.append(process.readAll());
+		QFile file("/etc/pacman.d/mirrorlist");
+		if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+			QTextStream textStream( &file);
+			QRegularExpression re("(?<=Server\\ =\\ )(.*)$");
+			re.setPatternOptions(QRegularExpression::MultilineOption);
+			QRegularExpressionMatchIterator i = re.globalMatch(textStream.readAll());
+			while (i.hasNext()) {
+				QRegularExpressionMatch match = i.next();
+				txtList << match.captured(1);
+			}
+		} else
+			txtList << "Unable to load mirrorlist file";
 
-		QStringList txtList = QTextCodec::codecForMib(106)->toUnicode(data.data()).split("\n");
 		txtList.removeAll(QString(""));
-
 		for (const auto& url : txtList)
 			mirrorsList << new MirrorEntry(url);
 	}

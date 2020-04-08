@@ -26,5 +26,5 @@ SOURCES = main.cpp \
 TARGET = niemeyer
 
 lupdate_only {
-    SOURCES = qml/*.qml
+    SOURCES = lib/niemeyer/qml/*.qml
 }

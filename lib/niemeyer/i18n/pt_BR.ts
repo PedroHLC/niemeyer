@@ -244,10 +244,6 @@ Caso não tenha certeza, deixe o padrão</translation>
         <translation>Selecione o idioma do sistema: </translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
-    </message>
-    <message>
         <source>Next</source>
         <translation>Próximo</translation>
     </message>
@@ -274,16 +270,16 @@ Caso não tenha certeza, deixe o padrão</translation>
         <translation>Orderne os mirrors do pacman:</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
-    </message>
-    <message>
-        <source>Apply &amp;&amp; Next</source>
-        <translation>Aplicar &amp;&amp; Prosseguir</translation>
-    </message>
-    <message>
         <source>Back</source>
         <translation>Voltar</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Próximo</translation>
     </message>
 </context>
 <context>
@@ -374,14 +370,6 @@ um script para o netctl, esse script poderá ser editado antes de conectar.</tra
     <message>
         <source>Hostname:</source>
         <translation>Nome do host:</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation type="vanished">Aplicar</translation>
     </message>
     <message>
         <source>Back</source>

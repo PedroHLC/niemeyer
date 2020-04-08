@@ -196,11 +196,15 @@ If unsure leave default</source>
         <translation></translation>
     </message>
     <message>
-        <source>Apply &amp;&amp; Next</source>
+        <source>Back</source>
         <translation></translation>
     </message>
     <message>
-        <source>Back</source>
+        <source>Apply</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Next</source>
         <translation></translation>
     </message>
 </context>
