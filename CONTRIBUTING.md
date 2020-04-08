@@ -4,7 +4,9 @@ Here are instructions on how to contribute:
 * There is a development ROADMAP in [GitHub issue #1](https://github.com/PedroHLC/niemeyer/issues/1)
 * Discuss with [the developer](https://t.me/pedrohlc) what and how things can be done.
 * Try to keep it KISS: If it can be done simply, keep it simple. Also, do not add unnecessary dependencies.
-* The project doesn't have coding style guidelines nor a linter, but keep the code readable and do not add unnecessary files to your commits.
+* For C++ use `clang-format -i --style=LLVM src/{,lib/}*` to auto-format.
+* For QML keep the code readable.
+* Do not add unnecessary files to your commits.
 * Please use reviewable.io to respond to PR's reviews.
 * When using translation strings on code, please run `lupdate -verbose -pro niemeyer.pro` to generate the translations source on `lang` folder.
 
