@@ -6,7 +6,9 @@
 */
 
 #include <QDebug>
-#include <QProcess>
+#include <QFile>
+#include <QRegularExpression>
+#include <QRegularExpressionMatchIterator>
 #include <QTextCodec>
 #include <QTextStream>
 
@@ -16,20 +18,25 @@ Locales::Locales(QObject *parent) : QObject(parent), selectedLANG("C") {}
 
 QList<LocaleEntry *> Locales::getLocales() {
   if (localesList.size() < 1) {
-    QProcess process = QProcess();
-    process.setReadChannel(QProcess::StandardOutput);
-    process.start(QStringLiteral(
-        "grep -Po \"(?<=^#|^)[a-z]+(?:_[A-Z]+)?(?:@[a-z]+|.[A-Z0-9-]+)? "
-        "[A-Z0-9-]+\" /etc/locale.gen"));
+    QStringList txtList;
 
-    QByteArray data;
-    while (process.waitForFinished())
-      data.append(process.readAll());
+    QFile file("/etc/locale.gen");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+      QTextStream textStream(&file);
+      QRegularExpression re("(?<=^#|^)("
+                            "[a-z]+(?:_[A-Z]+)?(?:@[a-z]+|.[A-Z0-9-]+)? "
+                            "[A-Z0-9-]+)");
 
-    QStringList txtList =
-        QTextCodec::codecForMib(106)->toUnicode(data.data()).split("\n");
+      re.setPatternOptions(QRegularExpression::MultilineOption);
+      QRegularExpressionMatchIterator i = re.globalMatch(textStream.readAll());
+      while (i.hasNext()) {
+        QRegularExpressionMatch match = i.next();
+        txtList << match.captured(1);
+      }
+    } else
+      txtList << "Unable to load locales file";
+
     txtList.removeAll(QString(""));
-
     for (const auto &code : txtList)
       localesList << new LocaleEntry(code);
 

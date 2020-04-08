@@ -45,14 +45,22 @@ QStringList DiskMgr::getDevices() {
 QStringList DiskMgr::getPartitions() {
   QProcess process = QProcess();
   process.setReadChannel(QProcess::StandardOutput);
-  process.start(
-      QStringLiteral("bash -c \"blkid | grep -Po '(?<=^/dev/)[^:]+'\""));
+  process.start(QStringLiteral("blkid"));
+  // TODO: Consider moving to libblkid
 
   QByteArray data;
   while (process.waitForFinished())
     data.append(process.readAll());
 
-  partitions = QTextCodec::codecForMib(106)->toUnicode(data.data()).split("\n");
+  QRegularExpression re("(?<=^/dev/)([^:]+)");
+  QRegularExpressionMatchIterator i =
+      re.globalMatch(QTextCodec::codecForMib(106)->toUnicode(data.data()));
+
+  partitions = QStringList();
+  while (i.hasNext()) {
+    QRegularExpressionMatch match = i.next();
+    partitions << match.captured(1);
+  }
   partitions.removeAll(QString(""));
   return partitions;
 }
@@ -60,15 +68,22 @@ QStringList DiskMgr::getPartitions() {
 QStringList DiskMgr::getEXTPartitions() {
   QProcess process = QProcess();
   process.setReadChannel(QProcess::StandardOutput);
-  process.start(QStringLiteral(
-      "bash -c \"blkid | grep 'ext[2-4]' | grep -Po '(?<=^/dev/)[^:]+'\""));
+  process.start(QStringLiteral("blkid -t TYPE=ext4"));
+  // TODO: Consider moving to libblkid
 
   QByteArray data;
   while (process.waitForFinished())
     data.append(process.readAll());
 
-  extPartitions =
-      QTextCodec::codecForMib(106)->toUnicode(data.data()).split("\n");
+  QRegularExpression re("(?<=^/dev/)([^:]+)");
+  QRegularExpressionMatchIterator i =
+      re.globalMatch(QTextCodec::codecForMib(106)->toUnicode(data.data()));
+
+  extPartitions = QStringList();
+  while (i.hasNext()) {
+    QRegularExpressionMatch match = i.next();
+    extPartitions << match.captured(1);
+  }
   extPartitions.removeAll(QString(""));
   return extPartitions;
 }
