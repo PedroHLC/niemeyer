@@ -10,7 +10,7 @@ Here are instructions on how to contribute:
 * Please use reviewable.io to respond to PR's reviews.
 * When using translation strings on code, please run `lupdate -verbose -pro niemeyer.pro` to generate the translations source on `lang` folder.
 
-Others suggestions:
+Suggestions:
 * To understand the code, start with `src/main.cpp` and `qml/MainContainer.qml`.
 
-If you have any doubts, you may contact me at GitHub, email (root at pedrohlc dot com), Telegram (@pedrohlc) or Discord (PedroHLC#9217).
+If you have any doubts, you may contact me at GitHub, email (root at pedrohlc dot com), [Telegram (@pedrohlc)](https://t.me/pedrohlc) or Discord (PedroHLC#9217).

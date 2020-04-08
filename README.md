@@ -33,5 +33,15 @@ export QT_QPA_PLATFORM='eglfs'
 ./bin/niemeyer
 ```
 
+For the Arch's setup ISO a few others preparations are required, check the `launcher` directory.
+
+## How to build an setup ISO?
+Run `target/iso/archlive/build-iso.sh`.
+
+By now, this process can only be done within an ArchLinux of the same architecture.
+
 # What it looks like?
 ![Language Picking Screen](screenshot.png)
+
+# How to contribute?
+Take a look at the [contribution guidelines](CONTRIBUTING.md).
