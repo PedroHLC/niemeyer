@@ -20,7 +20,7 @@ pacman -S qt5-base qt5-quickcontrols2 libinput libxkbcommon qmltermwidget
 ```
 pacman -S qt5-tools
 cd niemeyer
-qmake -makefile -project niemeyer.pro
+qmake -makefile niemeyer.pro
 make
 lrelease niemeyer.pro
 ```
